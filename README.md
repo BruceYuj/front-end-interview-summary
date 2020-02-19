@@ -22,6 +22,6 @@
 1. catalan
 
 ### LeetCode 刷题
-[目前进度(272/2020-02-14)](./algorithms/LeetCode/README.md)
+[目前进度(282/2020-02-19)](./algorithms/leetcode-problems/README.md)
 **每周更新一次**
 # TODOs

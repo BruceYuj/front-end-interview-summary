@@ -34,7 +34,7 @@ let newArray = arr.map(
 
 整个算法非常简单易懂。
 
-那么除了内部算法之外，我们还需要了解哪些细节呢？
+**那么除了内部算法之外，我们还需要了解哪些细节呢？**
 1. callbackfn 会作用于 array 实际存在的每个元素
     - 不会作用于 array 的 missing element
          1. indexes that has never been set

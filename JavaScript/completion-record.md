@@ -22,6 +22,7 @@ completion record 在不同版本的 ECMAScript 文档的叫法会稍有变化�
 |[[type]] | normal, break, throw, continue, return | 发生的 completion 类型|
 |[[value]]|any ECMAScript language value or empty|产生的值|
 |[[target]]|string or empty|the target label for directed control transfer|
+
 该表格对所有类型的 statement 生成的 completion record 都进行了描述。
 
 **到目前为止(ES6)，ECMAScript 定义了哪些 statement呢？**：

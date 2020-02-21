@@ -1,6 +1,6 @@
 # 基础知识
 ## JavaScript
-1. [inheritance and the prototype chain](./JavaScript/Inheritance-and-prototype-chain.md)
+1. [一起读 ECMAscript 规范系列文章](./introduction/es-specification-together.md)
 
 ## 设计模式
 

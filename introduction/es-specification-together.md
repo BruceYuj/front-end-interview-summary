@@ -7,6 +7,7 @@
 2. [理解 parseInt 的细节](../javascript/built-in-parseInt.md)
 3. [理解 Array.protoype.map 的细节](../javascript/Array-prototype-map.md)
 4. [理解 let, const, var 的细节](../JavaScript/javascript-declaration.md)
+5. [ECMAScript 是如何通过 declaration 识别 block scope的](../JavaScript/es6-block-scope.md)
 
 
 ## 有用的资料

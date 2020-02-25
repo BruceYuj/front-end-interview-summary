@@ -71,3 +71,7 @@ with(c) {
 就是 let and const declaration 在 created 阶段后暂时无法使用，也就进入了暂时性死区。
 
 **另外我们需要注意的是，在ECMAScript 文档当中， let 和 const 被称为 lexical declaration，而 var 被称为 variable declaration。**
+
+
+最后，我们看[rwaldon 的一段话](https://gist.github.com/rwaldron/ca35924d59ddc60a6aa165e1e4a3acda)：
+> In JavaScript, all binding declarations are instantiated when control flow enters the scope in which they appear. Legacy var and function declarations allow access to those bindings before the actual declaration, with a "value" of undefined. That legacy behavior is known as "hoisting". let and const binding declarations are also instantiated when control flow enters the scope in which they appear, with access prevented until the actual declaration is reached; this is called the Temporal Dead Zone. The TDZ exists to prevent the sort of bugs that legacy hoisting can create.

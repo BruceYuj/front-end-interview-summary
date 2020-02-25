@@ -8,6 +8,7 @@
 - [137. 只出现一次的数字 II(medium)](./article/137.md)
 - [188. 买卖股票的最佳时机 IV(hard)](./article/188.md)
 - [231. 2的幂(easy)](./article/231.md)
+- [239. 滑动窗口最大值(hard)](剑指offer/article/59-I.md)
 - [260. 只出现一次的数字 III(medium)](./article/260.md)
 - [268. 缺失数字(easy)](./article/268.md)
 - [287. 寻找重复数(medium)](article/287.md)
@@ -15,8 +16,12 @@
 - [326. 3的幂(easy)](article/326.md)
 - [342. 4的幂(easy)](./article/342.md)
 - [372. 超级次方(meidum)](article/372.md)
+- [424. 替换后的最长重复字符(medium)](article/424.md)
 - [714. 买卖股票的最佳时机含手续费(meidum)](./article/714.md)
+- [1004. 最大连续1的个数 III(medium)](article/1004.md)
 
 
 ## 剑指offer
 - [面试题48. 最长不含重复字符的子字符串](剑指offer/article/48.md)
+- [面试题59 - I. 滑动窗口的最大值](剑指offer/article/59-I.md)
+- [面试题59 - II. 面试题59 - II. 队列的最大值](剑指offer/article/59-II.md)

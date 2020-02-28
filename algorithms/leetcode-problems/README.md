@@ -1,6 +1,8 @@
 - [26. 删除排序数组中的重复项(easy)](./article/26.md)
+- [30. 串联所有单词的子串(hard)](article/30.md)
 - [41. 缺失的第一个正数(hard)](./article/41.md)
 - [50. Pow(x, n)(medium)](article/50.md)
+- [76. 最小覆盖子串(hard)](article/76.md)
 - [121. 买卖股票的最佳时机(easy)](./article/121.md)
 - [122. 买卖股票的最佳时机 II(easy)](./article/122.md)
 - [123. 买卖股票的最佳时机 III(hard)](./article/123.md)
@@ -21,6 +23,7 @@
 - [992. K 个不同整数的子数组(hard)](./article/992.md)
 - [995. K 连续位的最小翻转次数(hard)](https://leetcode-cn.com/problems/minimum-number-of-k-consecutive-bit-flips/submissions/)
 - [1004. 最大连续1的个数 III(medium)](article/1004.md)
+- [1040. 移动石子直到连续 II(medium)](article/1040.md)
 
 
 ## 剑指offer

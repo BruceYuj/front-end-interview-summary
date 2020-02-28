@@ -33,3 +33,5 @@ var removeDuplicates2 = function(nums) {
   }
   return slow+1;
 }
+
+removeDuplicates([1,2,1,2,4])

@@ -1,5 +1,5 @@
 ## 简介
-本章主要从 ECMAScript 规范来分析 javascript 中的几种 declaration 方式和。
+本章主要从 ECMAScript 规范来分析 javascript 中的几种 declaration 方式。
 
 对于任何一个前端从业者来讲，对于 declaration 知识点经常被问到下面几个问题：
 1. let , const, var 的区别是什么？

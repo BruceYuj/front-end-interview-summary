@@ -6,3 +6,6 @@ JavaScript 的 this 指向存在的意义？
 和 Python 中的 self 是否有所不同？
 和 Java 中的 this 是否相同？
 
+ECMAScript function object
+
+

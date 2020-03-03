@@ -2,6 +2,7 @@
 - [30. 串联所有单词的子串(hard)](article/30.md)
 - [41. 缺失的第一个正数(hard)](./article/41.md)
 - [50. Pow(x, n)(medium)](article/50.md)
+- [74. 搜索二维矩阵(medium)](article/74.md)
 - [76. 最小覆盖子串(hard)](article/76.md)
 - [121. 买卖股票的最佳时机(easy)](./article/121.md)
 - [122. 买卖股票的最佳时机 II(easy)](./article/122.md)
@@ -11,6 +12,7 @@
 - [188. 买卖股票的最佳时机 IV(hard)](./article/188.md)
 - [231. 2的幂(easy)](./article/231.md)
 - [239. 滑动窗口最大值(hard)](剑指offer/article/59-I.md)
+- [240. 搜索二维矩阵 II(medium)](article/240.md)
 - [260. 只出现一次的数字 III(medium)](./article/260.md)
 - [268. 缺失数字(easy)](./article/268.md)
 - [287. 寻找重复数(medium)](article/287.md)
@@ -30,3 +32,7 @@
 - [面试题48. 最长不含重复字符的子字符串](剑指offer/article/48.md)
 - [面试题59 - I. 滑动窗口的最大值](剑指offer/article/59-I.md)
 - [面试题59 - II. 面试题59 - II. 队列的最大值](剑指offer/article/59-II.md)
+
+
+## 程序员面试金典
+- [面试题 10.01. 合并排序的数组(easy)](程序员面试金典/article/10.01.md)

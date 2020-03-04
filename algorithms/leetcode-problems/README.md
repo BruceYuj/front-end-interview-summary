@@ -23,6 +23,7 @@
 - [424. 替换后的最长重复字符(medium)](article/424.md)
 - [714. 买卖股票的最佳时机含手续费(meidum)](./article/714.md)
 - [992. K 个不同整数的子数组(hard)](./article/992.md)
+- [994. 腐烂的橘子(easy)](article/994.md)
 - [995. K 连续位的最小翻转次数(hard)](https://leetcode-cn.com/problems/minimum-number-of-k-consecutive-bit-flips/submissions/)
 - [1004. 最大连续1的个数 III(medium)](article/1004.md)
 - [1040. 移动石子直到连续 II(medium)](article/1040.md)

@@ -22,7 +22,7 @@
 1. catalan
 
 ### LeetCode 刷题
-**目前进度(282/2020-02-19)**
+**目前进度(308/2020-03-4)**
 
 [题解（周更）](./algorithms/leetcode-problems/README.md)
 

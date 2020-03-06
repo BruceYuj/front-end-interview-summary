@@ -13,7 +13,7 @@
 - [231. 2的幂(easy)](./article/231.md)
 - [239. 滑动窗口最大值(hard)](剑指offer/article/59-I.md)
 - [240. 搜索二维矩阵 II(medium)](article/240.md)
-- [260. 只出现一次的数字 III(medium)](./article/260.md)
+- [260. 只出现一次的数字 III(medium)](./article/260.md) 
 - [268. 缺失数字(easy)](./article/268.md)
 - [287. 寻找重复数(medium)](article/287.md)
 - [309. 最佳买卖股票时机含冷冻期(medium)](./article/309.md)
@@ -31,9 +31,11 @@
 
 
 ## 剑指offer
-- [面试题48. 最长不含重复字符的子字符串](剑指offer/article/48.md)
-- [面试题59 - I. 滑动窗口的最大值](剑指offer/article/59-I.md)
-- [面试题59 - II. 面试题59 - II. 队列的最大值](剑指offer/article/59-II.md)
+- [面试题04. 二维数组中的查找(easy)](剑指offer/article/4.md)
+- [面试题48. 最长不含重复字符的子字符串(medium)](剑指offer/article/48.md)
+- [面试题59 - I. 滑动窗口的最大值(easy)](剑指offer/article/59-I.md)
+- [面试题59 - II. 面试题59 - II. 队列的最大值(medium)](剑指offer/article/59-II.md)
+- [面试题57 - II. 和为s的连续正数序列(easy)](剑指offer/article/57-II.md)
 
 
 ## 程序员面试金典

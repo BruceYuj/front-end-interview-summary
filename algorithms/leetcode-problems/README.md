@@ -21,6 +21,7 @@
 - [342. 4的幂(easy)](./article/342.md)
 - [372. 超级次方(meidum)](article/372.md)
 - [424. 替换后的最长重复字符(medium)](article/424.md)
+- [543. 二叉树的直径(easy)](article/543.md)
 - [714. 买卖股票的最佳时机含手续费(meidum)](./article/714.md)
 - [992. K 个不同整数的子数组(hard)](./article/992.md)
 - [994. 腐烂的橘子(easy)](article/994.md)

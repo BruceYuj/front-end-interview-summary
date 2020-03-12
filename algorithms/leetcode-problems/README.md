@@ -29,6 +29,7 @@
 - [995. K 连续位的最小翻转次数(hard)](article/995.md)
 - [1004. 最大连续1的个数 III(medium)](article/1004.md)
 - [1013. 将数组分成和相等的三个部分(easy)](article/1013.md)
+- [1071. 字符串的最大公因子(easy)](article/1071.md)
 - [1103. 分糖果 II(easy)](article/1103.md)
 - [1040. 移动石子直到连续 II(medium)](article/1040.md)
 

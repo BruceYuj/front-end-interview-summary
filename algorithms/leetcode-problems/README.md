@@ -9,6 +9,7 @@
 - [123. 买卖股票的最佳时机 III(hard)](./article/123.md)
 - [136. 只出现一次的数字 I(easy)](./article/136.md)
 - [137. 只出现一次的数字 II(medium)](./article/137.md)
+- [169. 多数元素(easy)](article/169.md)
 - [188. 买卖股票的最佳时机 IV(hard)](./article/188.md)
 - [231. 2的幂(easy)](./article/231.md)
 - [239. 滑动窗口最大值(hard)](剑指offer/article/59-I.md)

@@ -26,6 +26,7 @@
 - [424. 替换后的最长重复字符(medium)](article/424.md)
 - [437. 路径总和 III(easy)](article/437.md)
 - [543. 二叉树的直径(easy)](article/543.md)
+- [695.	岛屿的最大面积(medium)](article/695.md)
 - [714. 买卖股票的最佳时机含手续费(meidum)](./article/714.md)
 - [992. K 个不同整数的子数组(hard)](./article/992.md)
 - [994. 腐烂的橘子(easy)](article/994.md)

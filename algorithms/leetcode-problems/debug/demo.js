@@ -1,7 +1,27 @@
-var isRectangleOverlap = function(rec1, rec2) {
-    if(rec1[0] > rec2[0]) [rec1, rec2] = [rec2, rec1];
+var isBalanced = function(root) {
+    if(!root) return true;
+    if(!root.left && !root.right) return true;
 
-    return !(rec2[0] >= rec1[2] || rec2[1] >= rec1[3] || rec2[3] <= rec1[1]);
+
+    return Math.abs(height(root.left)-height(root.right)) <= 1 && isBalanced(root.left) && isBalanced(root.right);
+
+    function height(root) {
+        if(!root) return -1;
+        if(!root.left && !root.right) return 0;
+        let height = -1;
+        let queue = [root];
+        while(queue.length) {
+            let len = queue.length;
+            height++;
+            for(let i = 0; i < len; i++) {
+                let top = queue.shift();
+                if(top.left) queue.push(top.left);
+                if(top.right) queue.push(top.right);
+            }
+        }
+        return height;
+    }
 };
 
-isRectangleOverlap([4,0,6,6],[-5,-3,4,2])
+let root = buildTreeFromArr([1,2,2,3,3,3,3,4,4,4,4,4,4,null,null,5,5])
+console.log(isBalanced(root));

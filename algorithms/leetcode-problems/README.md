@@ -4,6 +4,7 @@
 - [50. Pow(x, n)(medium)](article/50.md)
 - [74. 搜索二维矩阵(medium)](article/74.md)
 - [76. 最小覆盖子串(hard)](article/76.md)
+- [110. 平衡二叉树(easy)](article/110.md)
 - [121. 买卖股票的最佳时机(easy)](./article/121.md)
 - [122. 买卖股票的最佳时机 II(easy)](./article/122.md)
 - [123. 买卖股票的最佳时机 III(hard)](./article/123.md)

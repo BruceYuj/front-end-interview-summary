@@ -1,33 +1,33 @@
 # 基础知识
-## JavaScript
-1. [一起读 ECMAscript 规范系列文章](./introduction/es-specification-together.md)
+## 前端基础
+### JavaScript
+1. [一起读 ECMAscript 规范系列文章](./integration/es-specification-together.md)
 
-## 设计模式
+### CSS
 
+### HTML
 
-## 数据结构与算法
-### 排序
-1. 快速排序
-2. 归并排序
-3. 堆排序
-4. 冒泡排序
-5. 插入排序
-6. 选择排序
-7. 希尔排序
+## 计算机科学基础
+### 设计模式
 
-### 图论
-1. 拓扑排序
+### 编程范式
 
-### 数论
-1. catalan
+### 数据结构与算法
+1. 排序相关
+2. 图论相关
+3. 数论相关
+4. 树相关
+5. 字符串相关
 
-### LeetCode 刷题
-**目前进度(308/2020-03-4)**
+#### LeetCode 刷题
+**目前进度(326/2020-03-22)**
 
-[题解（周更）](./algorithms/leetcode-problems/README.md)
+[LeetCode 题解](./algorithms/leetcode-problems/README.md)
+
+[其他 OJ 题解(未完成)]()
 
 # 习题
-## Advanced-Frontend 系列题目
-[答案](习题/木易杨/README.md)
+1. [JavaScript 相关](习题/JavaScript/README.md)
+
 
 # TODOs

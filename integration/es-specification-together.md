@@ -9,7 +9,7 @@
 4. [理解 let, const, var 的细节](../JavaScript/javascript-declaration.md)
 5. [ECMAScript 是如何通过 declaration 识别 block scope的](../JavaScript/es6-block-scope.md)
 6. [ECMAScript 中是如何讲解 environment record 和 executing context 的](../JavaScript/environment-record.md)
-
+7. [如何理解 ES6以后 的block-level function declaration 和 Web Legacy Compatibility Semantics](../JavaScript/block-level-function.md)
 
 ## 有用的资料
 1. [navigating the spec](https://timothygu.me/es-howto/#navigating-the-spec)

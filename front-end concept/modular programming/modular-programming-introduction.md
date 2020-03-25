@@ -10,3 +10,17 @@ modular programming 是一种软件设计技巧，其主要目的是将整个程
 在 Python 当中，每个文件都是一个 module，而一个 package 是多个 module 的集合。
 
 https://en.wikipedia.org/wiki/Modular_programming
+
+https://v8.dev/features/modules v8 中对于 ES module 的科普
+
+https://zhuanlan.zhihu.com/p/40733281 常见的模块好的实践
+
+https://zhuanlan.zhihu.com/p/22890374 入门的模块化
+
+https://segmentfault.com/a/1190000011081338 
+
+https://zhuanlan.zhihu.com/p/26118022 模块化的历史
+https://yuguo.us/weblog/javascript-module-development-history/
+https://huangxuan.me/js-module-7day/#/10
+
+https://nodejs.org/dist/latest-v13.x/docs/api/esm.html

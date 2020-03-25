@@ -8,6 +8,7 @@
 - [121. 买卖股票的最佳时机(easy)](./article/121.md)
 - [122. 买卖股票的最佳时机 II(easy)](./article/122.md)
 - [123. 买卖股票的最佳时机 III(hard)](./article/123.md)
+- [131. 分割回文串(medium)](article/131.md)
 - [136. 只出现一次的数字 I(easy)](./article/136.md)
 - [137. 只出现一次的数字 II(medium)](./article/137.md)
 - [169. 多数元素(easy)](article/169.md)

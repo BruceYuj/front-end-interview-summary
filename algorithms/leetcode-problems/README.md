@@ -30,6 +30,7 @@
 - [695.	岛屿的最大面积(medium)](article/695.md)
 - [714. 买卖股票的最佳时机含手续费(meidum)](./article/714.md)
 - [876. 链表的中间结点(easy)](article/876.md)
+- [892. 三维形体的表面积(easy)](article/892.md)
 - [945. 使数组唯一的最小增量(medium)](article/945.md)
 - [992. K 个不同整数的子数组(hard)](./article/992.md)
 - [994. 腐烂的橘子(easy)](article/994.md)

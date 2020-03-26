@@ -1,37 +1,34 @@
 /**
  * @param {string} s
- * @return {number}
+ * @param {string[]} wordDict
+ * @return {string[]}
  */
-var minCut = function(s) {
-    let dp = new Array(s.length).fill(s.length);
-    let palindrome = new Array(s.length);
-    for(let i = 0; i < s.length; i++) palindrome[i] = new Array(s.length).fill(false);
 
-    for(let i = 0; i < s.length; i++) {
-        for(let j = 0; j < s.length; j++) {
-            if(j <= i) {
-                palindrome[i][j] = true;
-                continue;
-            }
-            palindrome[i][j] =  s[i] === s[j] && palindrome[i+1][j-1];
-        }
+
+var wordBreak = function(s, wordDict) {
+    let map = {};
+    for(let i = 0; i < wordDict.length; i++) {
+        map[wordDict[i]] = true;
     }
+    let dp = new Array(s.length+1);
+    for(let i = 0; i < s.length; i++) dp[i] = [];
 
-    dp[0] = 0;
-    for(let i = 1; i < dp.length; i++) {
-        if(palindrome[0][i]) {
-            dp[i] = 0;
-            continue;
-        }
-        for(let j = 0; j < i; j++) {
+    dp[s.length] = [''];
 
-            if(palindrome[j+1][i]) {
-                dp[i] = Math.min(dp[i], dp[j] + 1);
+    for(let i = s.length - 1; i >= 0; i--) {
+        let path = [];
+        for(let j = i; j < s.length; j++) {
+            let word = s.slice(i, j+1);
+            if( map[word]) {
+                for(let k = 0; k < dp[j+1].length; k++) {
+                    let tmp = word + (dp[j+1][k].length === 0 ? '':' ') +  dp[j+1][k]; 
+                    path.push(tmp);
+                }
             }
         }
+        dp[i] =  path;
     }
-
-    return dp[s.length-1];
+    return dp[0];
 };
 
-minCut("aabbc");
+wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"])

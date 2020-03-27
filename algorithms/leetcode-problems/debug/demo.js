@@ -1,47 +1,23 @@
-/**
- * @param {string} s
- * @param {string[]} wordDict
- * @return {string[]}
- */
+var numDistinct = function(s, t) {
+    let n = s.length;
+    let m = t.length;
 
+    let memo  = new Array(m+1).fill(0);
+    let memo1 = new Array(m+1).fill(0);
+    memo[m] = 1;
 
-var wordBreak = function(s, wordDict) {
-    let map = {};
-    for(let i = 0; i < wordDict.length; i++) map[wordDict[i]] = true;
-
-    let memo = new Array(s.length).fill(-1);
-
-    let ans = helper(0);
-    return ans[1].map(elem => {
-        return elem.join(' ');
-    })
-
-    function helper(index) {
-        if(index >= s.length) return [true, []];
-        if(memo[index] !== -1) return memo[index];
-
-        let path = [];
-        let isSucceed = false;
-        for(let i = index; i < s.length; i++) {
-            let word = s.slice(index, i+1);
-            if(map[word]) {
-                let tmp = helper(i+1);
-                if(tmp[0]) {
-                    isSucceed = true;
-                    if(!tmp[1].length) {
-                        path.push([word]);
-                        continue;
-                    }
-                    for(let j = 0; j < tmp[1].length; j++) {
-                        path.push([word, ...tmp[1][j]]);
-                    }
-                }
-            }
+    for(let i = n-1; i >= 0; i--){
+        for(let j = m-1; j >= 0; j--) {
+            let tmp = memo[j];
+            if(s[i] === t[j]) tmp += memo[j+1];   
+            memo1[j] = tmp;   
         }
-
-        memo[index] = [isSucceed, path];
-        return memo[index];
+        [memo, memo1] = [memo1, memo]
     }
+
+
+    return memo[0];
+
 };
 
-wordBreak("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",["a","aa","aaa","aaaa","aaaaa","aaaaaa","aaaaaaa","aaaaaaaa","aaaaaaaaa","aaaaaaaaaa"])
+console.log(numDistinct("rabbbi", "bbi"));

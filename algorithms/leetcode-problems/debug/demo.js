@@ -1,23 +1,35 @@
-var numDistinct = function(s, t) {
-    let n = s.length;
-    let m = t.length;
+var minimumLengthEncoding = function(words) {
+    
+    let count = 0;
+    let root = new TrieNode();
 
-    let memo  = new Array(m+1).fill(0);
-    let memo1 = new Array(m+1).fill(0);
-    memo[m] = 1;
+    for(let i = 0; i < words.length; i++) {
+        let word = words[i];
+        let path = root;
+        let isNew = false;
+        let old = 0;
 
-    for(let i = n-1; i >= 0; i--){
-        for(let j = m-1; j >= 0; j--) {
-            let tmp = memo[j];
-            if(s[i] === t[j]) tmp += memo[j+1];   
-            memo1[j] = tmp;   
+        for(let j = word.length - 1; j >= 0; j--) {
+            let ch = word.charCodeAt(j) - 97;
+            if(!path.next[ch]) {
+                let newNode = new TrieNode();
+                newNode.count = path.count + 1;
+                path.next[ch] = newNode;
+                isNew = true;
+            } 
+            if(path.isEnd) old++;
+            path = path.next[ch];
         }
-        [memo, memo1] = [memo1, memo]
+        path.isEnd = true;
+        count += (isNew ? 1 + path.count : 0) - old;
     }
 
+    return count;
 
-    return memo[0];
-
+    function TrieNode() {
+        this.isEnd = false;
+        this.count = 0;
+        this.next = new Array(26);
+    }
 };
-
-console.log(numDistinct("rabbbi", "bbi"));
+console.log(minimumLengthEncoding(["time", "atime", "btime"]));

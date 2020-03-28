@@ -34,6 +34,7 @@
 - [543. 二叉树的直径(easy)](article/543.md)
 - [695.	岛屿的最大面积(medium)](article/695.md)
 - [714. 买卖股票的最佳时机含手续费(meidum)](./article/714.md)
+- [820. 单词的压缩编码](article/820.md)
 - [876. 链表的中间结点(easy)](article/876.md)
 - [892. 三维形体的表面积(easy)](article/892.md)
 - [914. 卡牌分组(easy)](article/914.md)

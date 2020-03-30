@@ -47,8 +47,8 @@
 - [1040. 移动石子直到连续 II(medium)](article/1040.md)
 - [1071. 字符串的最大公因子(easy)](article/1071.md)
 - [1103. 分糖果 II(easy)](article/1103.md)
-- [1160. 拼写单词](article/1160.md)
-
+- [1160. 拼写单词(easy)](article/1160.md)
+- [1162. 地图分析(medium)](article/1162.md)
 
 
 ## 剑指offer

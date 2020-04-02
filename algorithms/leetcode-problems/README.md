@@ -24,6 +24,7 @@
 - [260. 只出现一次的数字 III(medium)](./article/260.md) 
 - [268. 缺失数字(easy)](./article/268.md)
 - [287. 寻找重复数(medium)](article/287.md)
+- [289. 生命游戏(medium)](article/289.md)
 - [300. 最长上升子序列(medium)](article/300.md)
 - [309. 最佳买卖股票时机含冷冻期(medium)](./article/309.md)
 - [326. 3的幂(easy)](article/326.md)

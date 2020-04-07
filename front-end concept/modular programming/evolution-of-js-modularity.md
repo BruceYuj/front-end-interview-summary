@@ -121,3 +121,4 @@ var greeting = (function () {
 
 这种方式，首先由 richard cornford 在 2003 年使用，然后由 Douglas crockford 在其 2008 年著名的书《JavaScript: the Good Parts》 中被广为流传。其实在 2005年， Yahoo 的 YUI framework 已经采用这种方式（YUI 也是 douglas crockford 领导的）
 
+## template defined Dependencies(2006)

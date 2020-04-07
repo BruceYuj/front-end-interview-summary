@@ -50,6 +50,8 @@
 - [1103. 分糖果 II(easy)](article/1103.md)
 - [1160. 拼写单词(easy)](article/1160.md)
 - [1162. 地图分析(medium)](article/1162.md)
+- [1403. 非递增顺序的最小子序列(easy)](article/1403.md)
+- [1404. 将二进制表示减到 1 的步骤数(medium)](article/1404.md)
 
 
 ## 剑指offer

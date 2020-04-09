@@ -1,3 +1,4 @@
+- [22. 括号生成(medium)](article/22.md)
 - [26. 删除排序数组中的重复项(easy)](./article/26.md)
 - [30. 串联所有单词的子串(hard)](article/30.md)
 - [41. 缺失的第一个正数(hard)](./article/41.md)

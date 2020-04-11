@@ -2,7 +2,7 @@
 ## 前端基础
 ### JavaScript
 1. [一起读 ECMAscript 规范系列文章](./integration/es-specification-together.md)
-
+2. [modular programming in Front End in 10]()
 ### CSS
 
 ### HTML
@@ -12,6 +12,7 @@
 
 ### 编程范式
 1. [编程范式“游记”]()
+
 ### 数据结构与算法
 1. 排序相关
 2. 图论相关

@@ -3,7 +3,7 @@
 ## 前端基础
 ### JavaScript
 1. [一起读 ECMAscript 规范系列文章](./integration/es-specification-together.md)
-2. [modular programming in Front End in 10]()
+2. [modular programming in Front End on 10 days(on going)]()
 ### CSS
 
 ### HTML
@@ -12,7 +12,7 @@
 ### 设计模式
 
 ### 编程范式
-1. [编程范式“游记”]()
+1. [编程范式“游记”(on going)]()
 
 ### 数据结构与算法
 1. 排序相关
@@ -34,3 +34,9 @@
 
 
 # TODOs
+- [ ] 编程范式系列文章
+- [ ] 前端模块化编程系列文章
+- [ ] 公众号准备 - 主要包含计算机科学、健身、英语、小语种、音乐、哲学、心理学和经济学学习相关
+
+## License
+遵循 [Apache-2.0](https://github.com/azl397985856/leetcode/blob/master/LICENSE.txt)，转载请注明出处。

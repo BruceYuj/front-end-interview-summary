@@ -1,3 +1,6 @@
+ 
+ 
+ 
 ## 简介
 本章主要从 ECMAScript 规范来分析 javascript 中的几种 declaration 方式。
 

@@ -1,3 +1,6 @@
+ 
+ 
+ 
 ## JavaScript 中的继承与原型链
 JavaScript 中的继承对于熟练使用 class-based 的编程语言的开发者来讲是困惑的。JavaScript 是动态的，内部并没有提供 `class` 的实现。尽管在 **ES2015** 中引入了 `class` 关键字，但其实只是一种 syntax sugar, 内部的 prototype-based 的本质并没有发生改变。
 

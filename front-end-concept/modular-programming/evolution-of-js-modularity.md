@@ -1,3 +1,4 @@
+ 
 ## JavaScript 中模块化的演化
 当 Brendan Eich 设计出 JavaScript 的第一个版本时，并不会预见到这门语言在后面的二十多年有怎么样的发展。很显然，JavaScript 重来都不是完美的语言，而其很大的一个缺点就是缺乏 modularity。
 

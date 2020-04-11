@@ -1,3 +1,6 @@
+ 
+ 
+ 
 ## this的指向
 
 JavaScript 的 this 指向存在的意义？

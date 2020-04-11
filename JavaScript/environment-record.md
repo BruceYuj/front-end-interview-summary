@@ -1,3 +1,6 @@
+ 
+ 
+ 
 ## 简介
 本篇主要通过 ECMAScript 中的 environment record 概念来深入理解 JavaScript 中的困惑与细节。
 

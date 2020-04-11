@@ -1,3 +1,6 @@
+ 
+ 
+ 
 ## 使用 JavaScript 中的 object
 
 对object 的 property 进行 get 和 set 时会发生什么。

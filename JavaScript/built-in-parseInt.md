@@ -1,3 +1,6 @@
+ 
+ 
+ 
 ## 简介
 本文档主要理解 ECMAScript 文档当中的 built-in function *parseInt(string[,radix])*
 

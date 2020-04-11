@@ -1,4 +1,8 @@
+
 /algorithms/leetcode-problems/debug/*
 /commit.sh
 /*.sh
 /debug/*
+/*.txt
+.gitignore
+script.py

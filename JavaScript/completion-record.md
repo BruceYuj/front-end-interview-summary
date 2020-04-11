@@ -1,3 +1,6 @@
+ 
+ 
+ 
 ## 简介
 本篇主要理解 ECMAScript 文档的 specification type - completion record。
 

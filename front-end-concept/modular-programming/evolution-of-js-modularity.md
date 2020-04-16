@@ -4,7 +4,7 @@
 
 在设计之初，JavaScript 中不引入模块化的原因是很显然的-一切来源于需求。最开始，JavaScript 只是作为脚本语言和浏览器进行一些简单的交互，代码的构成都很简单，也就不需要模块化来降低处理的复杂性了。
 
-但是，时间是奇妙的。到2020年为止，JavaScript 已经演变成一个通用性高级编程语言，可以被用来在多种环境中搭建复杂的程序（比如浏览器，手机端，服务器，IoT等等）。而最开始可以在全局范围内写出所有代码就变得不可维护了。自然而然，模块化需要被引入语言本身。
+但是，时间是奇妙的。到2020年为止，JavaScript 已经演变成一个通用性高级编程语言，可以被用来在多种环境中搭建复杂的程序（比如浏览器，手机端，服务器，IoT等等）。而最开始的那种只需要在全局范围内写出所有代码就变得不可维护了。自然而然，模块化需要被引入语言本身。
 
 本文会一步步讲述 JavaScript 历史过程中的对于模块化的探索。
 
@@ -21,11 +21,12 @@
 - YModules
 - ES2015 Modules
 
-通常来讲，模块化会解决下面三个问题：
-- code ioslation(SoC原则)
+通常来讲，对于JavaScript 来讲，模块化需要解决下面三个问题：
+- code isolation(SoC原则)
 - 模块间的依赖关系定义
 - script loader，将模块代码加载到执行环境当中
 
+首先，我们
 当处理的任务复杂度越来越高， Name Collision 就不可避免了。
 很简单的例子是：
 ```javascript
@@ -120,6 +121,6 @@ var greeting = (function () {
 
 这里使用了 IIFE（immediately invoked function）来返回一个 module object。这种方式可以确保在外界无法直接访问 module 中的数据。这给我们的代码带来了原子性，并且可以被其他脚本使用而不用担心 name collision。
 
-这种方式，首先由 richard cornford 在 2003 年使用，然后由 Douglas crockford 在其 2008 年著名的书《JavaScript: the Good Parts》 中被广为流传。其实在 2005年， Yahoo 的 YUI framework 已经采用这种方式（YUI 也是 douglas crockford 领导的）
+这种方式，首先由 richard cornford 在 2003 年使用，然后由 Douglas crockford 在其 2008 年著名的书《JavaScript: the Good Parts》 中被广为流传。其实在 2005年， Yahoo 的 YUI framework 已经采用这种方式（YUI 也是 douglas crockford 领导的）。
 
 ## template defined Dependencies(2006)

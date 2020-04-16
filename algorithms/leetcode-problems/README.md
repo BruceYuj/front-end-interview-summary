@@ -1,9 +1,10 @@
-**文本更新于 2020年04月11日 19:02:23**
+**文本更新于 2020年04月16日 17:49:57**
 - [22. 括号生成(medium)](article/22.md)
 - [26. 删除排序数组中的重复项(easy)](./article/26.md)
 - [30. 串联所有单词的子串(hard)](article/30.md)
 - [41. 缺失的第一个正数(hard)](./article/41.md)
 - [50. Pow(x, n)(medium)](article/50.md)
+- [56. 合并区间(medium)](article/56.md)
 - [74. 搜索二维矩阵(medium)](article/74.md)
 - [76. 最小覆盖子串(hard)](article/76.md)
 - [110. 平衡二叉树(easy)](article/110.md)
@@ -35,6 +36,7 @@
 - [372. 超级次方(meidum)](article/372.md)
 - [424. 替换后的最长重复字符(medium)](article/424.md)
 - [437. 路径总和 III(easy)](article/437.md)
+- [542. 01 矩阵(medium)](542.md)
 - [543. 二叉树的直径(easy)](article/543.md)
 - [695.	岛屿的最大面积(medium)](article/695.md)
 - [714. 买卖股票的最佳时机含手续费(meidum)](./article/714.md)

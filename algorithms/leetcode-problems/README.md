@@ -1,9 +1,10 @@
-**文本更新于 2020年04月16日 17:49:57**
+**文本更新于 2020年04月17日 16:52:20**
 - [22. 括号生成(medium)](article/22.md)
 - [26. 删除排序数组中的重复项(easy)](./article/26.md)
 - [30. 串联所有单词的子串(hard)](article/30.md)
 - [41. 缺失的第一个正数(hard)](./article/41.md)
 - [50. Pow(x, n)(medium)](article/50.md)
+- [55. 跳跃游戏(medium)](article/55.md)
 - [56. 合并区间(medium)](article/56.md)
 - [74. 搜索二维矩阵(medium)](article/74.md)
 - [76. 最小覆盖子串(hard)](article/76.md)

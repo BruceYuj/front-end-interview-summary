@@ -16,3 +16,5 @@ do
     current=`date` && sed -i "1c **文本更新于 $current**" $file
 done
 
+git add .
+

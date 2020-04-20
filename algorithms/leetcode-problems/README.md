@@ -77,4 +77,4 @@
 
 
 ## 其他
-- [LCP 09. 最小跳跃次数(hard)](article/images/LCP-9-1.jpg)
+- [LCP 09. 最小跳跃次数(hard)](article/LCP-09.md)

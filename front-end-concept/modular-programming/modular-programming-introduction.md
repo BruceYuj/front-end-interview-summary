@@ -1,4 +1,4 @@
-**文本更新于 2020年04月17日 19:03:30**
+**文本更新于 2020年04月21日 18:11:50**
 ## modular programming introduction
 modular programming（模块化编程）是一种非常常用的软件设计技巧（technique），该技巧的思想起源于 1960s，其主要思路是将整个程序的功能分割成一个个独立的模块（module），然后相信每个模块各自干好自己的事。如果运用得当，在实际的软件工程方面中会带来不少的好处：
 - 关注点分离(SoC原则)
@@ -32,17 +32,61 @@ modular programming（模块化编程）是一种非常常用的软件设计技�
 
 另外需要知道的是到目前为止， C 和 pascal 仍然不原生支持 module。
 
-下面我们开始我们本系列的重点，前端模块化的演化。
 
-1. 蛮荒时代： 1999 - 2007
+## 前端模块化的介绍
+>**当命运石之门打开之日起，就注定了 JavaScript 不平凡的一生。**
+
+当 Brendan Eich 设计出 JavaScript 的第一个版本时，并不会预见到这门语言在后面的二十多年有怎么样的发展。很显然，JavaScript 从来都不是完美的语言，而其很大的一个缺点就是缺乏 modularity。
+
+在设计之初，JavaScript 不引入模块化的原因是很显然的-一切来源于需求。最开始，JavaScript 只是作为脚本语言和浏览器进行一些简单的交互，代码的构成都很简单，也就不需要模块化来降低处理的复杂性了。
+
+但是，命运是奇妙的。到2020年为止，JavaScript 已经演变成一个通用型高级编程语言，可以被用来在多种环境中搭建复杂的程序（比如浏览器，手机端，服务器，IoT等等）。而最开始的那种只需要在全局范围内写出所有代码的方式就变得不可维护了。自然而然，模块化需要被引入语言本身。
+
+**那么为什么说，复杂的 JavaScript 项目没有模块化会不可维护？**
+其实原因有很多，比如：
+1. 处理 name collision（命名冲突）。
+
+对于任何一门编程语言来讲，命名都不是一件简单的事，保证名字的语义化和可维护是重要的原则。CSS 中出现的各种命名规范就是一个很好的例子。
+而对于 JavaScript 来讲，一旦项目变得复杂，全局作用域下的命名就很容易发生冲突，比如下面的代码，当我们在一个 HTML 文件中同时引入 `a.js` 和 `b.js` 时，同名的变量会产生冲突：
+```javascript
+// file a.js
+var isValid = [];
+
+// file b.js
+var isValid = {};
+
+```
+
+2. browser 环境中的 JavaScript 文件顺序。
+
+对于 ES5 browser 环境来讲，我们通过 `<script>` 标签来引入 JavaScript 文件，而当我们的项目非常大之后，可能需要引入非常多的 JavaScript 文件。手动去维护引入的 JavaScript 文件的顺序是非常枯燥的。
+
+其实，从 JavaScript 语言诞生后没几年，JavaScript 开发社区就开始了各自的模块化方案探索，这些方案各自有各自的优缺点。而我将 1999 - 2015 这17年分成了 4 个阶段：
+1. 刀耕火种： 1999 - 2007
 2. 异军突起： 2009
-3. 百花齐放： 2011 - 2013
+3. 平稳发展： 2011 - 2013
 4. 大一统：2015
 
-1. 我们在分析 module dependency时，会发现所有的 modules 会形成一个 DAG(有向无环图)，这意味着做基础工具时可以使用很多 DAG 的算法。
+主要涉及到以下几种模块化方案：
+- Directly Defined Dependencies（直接定义依赖模式）
+- Namespace
+- Module
+- Detached Dependency Definitions
+- Sandbox
+- Dependency Injection
+- CommonJS
+- AMD
+- UMD
+- Labeled Modules
+- YModules
+- ES2015 Modules
 
+在最后，我需要强调的是，对于JavaScript 来讲，模块化需要解决下面三个问题：
+- code isolation(SoC原则) - module 中的代码不应该直接被泄漏到模块之外
+- 模块间的依赖关系定义 - 模块间的关系如何定义
+- script loader - 如何将模块代码加载到执行环境当中
 
-
+另外，有的模块化系统也会实现一种额外的特性 - sandbox and inversion of control(沙盒和控制反转)，其允许在不同的 sandbox 当中加载 module dependency graph。
 
 ## reference
 [wiki, modular programming](https://en.wikipedia.org/wiki/Modular_programming)

@@ -1,4 +1,4 @@
-function MaxHeap(capacity) {
+**文本更新于 2020年04月22日 19:02:07**
   this.count = 0;
   this.arr = new Array(capacity+1);
 }

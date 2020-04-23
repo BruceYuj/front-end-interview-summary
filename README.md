@@ -33,7 +33,7 @@
 1. [JavaScript 相关](习题/JavaScript/README.md)
 
 # 学习观
-1. [BY 的思考系列]()
+1. [BY 的思考系列](integration/by-thinking-series.md)
 
 # TODOs
 - [ ] 编程范式系列文章

@@ -11,9 +11,10 @@
 # done
 
 git add .
-for file in `git diff HEAD --name-only`
+for file in `git diff HEAD --name-only | grep .md`
 do
     current=`date` && sed -i "1c **文本更新于 $current**" $file
+    # echo $file
 done
 
 git add .

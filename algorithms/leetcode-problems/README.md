@@ -1,8 +1,9 @@
-**文本更新于 2020年04月23日 13:05:11**
+**文本更新于 2020年04月27日 11:05:21**
 - [11. 盛最多水的容器(medium)](article/11.md)
 - [22. 括号生成(medium)](article/22.md)
 - [26. 删除排序数组中的重复项(easy)](./article/26.md)
 - [30. 串联所有单词的子串(hard)](article/30.md)
+- [33. 搜索旋转排序数组(medium)](article/33.md)
 - [41. 缺失的第一个正数(hard)](./article/41.md)
 - [50. Pow(x, n)(medium)](article/50.md)
 - [55. 跳跃游戏(medium)](article/55.md)

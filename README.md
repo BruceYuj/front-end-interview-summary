@@ -1,4 +1,4 @@
-**文本更新于 2020年04月30日 15:50:24**
+**文本更新于 2020年04月30日 18:32:07**
 # basics
 ## 前端(front end)
 ### JavaScript
@@ -32,6 +32,8 @@
 1. [BY 的思考系列](integration/by-thinking-series.md)
 
 # TODOs
+- [ ] 对于 event loop 的思考
+- [ ] thread sleep 在 OS 层的原理
 - [ ] 编程范式系列文章
 - [ ] 前端模块化编程系列文章
 

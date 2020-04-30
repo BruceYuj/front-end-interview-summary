@@ -13,6 +13,12 @@
 git add .
 for file in `git diff HEAD --name-only | grep .md`
 do
+    sed -n 1p $file | grep "文本更新于"
+    if [ $? = 0 ];then
+        current=`date` && sed -i "1c **文本更新于 $current**" $file
+    else
+        current=`date` && sed -i "1i **文本更新于 $current**" $file
+    fi
     # current=`date` && sed -i "1c **文本更新于 $current**" $file
     # echo $file
 done

@@ -38,7 +38,7 @@ lexical environment 里面包含一个 environment record 和一个指向外部 
 - object environment record：用来记录类似 withstatement 这种 ECMAScript element，特点是会将 identifier 和 一些 object 的 property 进行关联。
 
 首先，我们来看看 ECMAScript 中提到的各种 environment record 之间的关系（类比于OOP中的类）：
-![](../images/200311-environement-record.jpg)
+![](./images/200311-environement-record.jpg)
 
 1. Declarative environment record: 每一个 Declarative environment record 会关联和程序中对应的作用域。具体该如何关联呢？该 record 通过绑定该作用域中的 declarations 和 identifiers。这些 declarations 包括 variable, constant, let, class ,function , module ,import。
 

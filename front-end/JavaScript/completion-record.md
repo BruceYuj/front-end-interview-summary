@@ -30,7 +30,7 @@ completion record 在不同版本的 ECMAScript 文档的叫法会稍有变化�
 
 **到目前为止(ES6)，ECMAScript 定义了哪些 statement呢？**：
 在这里我直接引用 winter 的图：
-![javascript-statement](../images/2020-02-20-winter-javascript-statement.jpg)
+![javascript-statement](./images/2020-02-20-winter-javascript-statement.jpg)
 
 - 普通语句： 产生 `[[type]]` 为 normal 的 completion record。JavaScript 引擎在遇到此类型的completion，会继续执行下一个语句。这些语句中，只有 expression statement 会产生 非 empty 的 `[[value]]`。chrome console 每次执行完一个 statement 显示的值就是 `[[value]]`。
 - 语句块：多个 statement 组成，返回的 completion record 取决于内部是否有 abrupt completion，如果存在 abrupt completion，会该语句块的 completion record 就是 该 abrupt completion。而这种内部逻辑也是符合我们的正常观感的。

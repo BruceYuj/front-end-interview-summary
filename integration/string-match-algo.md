@@ -4,7 +4,7 @@
 
 本系列分为 7 篇，1-4 篇主要讲的是单模式串匹配算法，5-6 主要讲的是多模式匹配算法，7 讲的是 V8 中的 indexOf 实现。
 
-- [第一篇：BF 算法和 RK 算法](../algorithms/theory/articles/string/string-matching-series/bf-and-rk.md)
+- [第一篇：BF 算法和 RK 算法](../algorithms/theory/string/string-matching-series/bf-and-rk.md)
 - [ ] 第二篇：KMP 算法
 - [ ] 第三篇：BM 算法
 - [ ] 第四篇：Sunday 算法

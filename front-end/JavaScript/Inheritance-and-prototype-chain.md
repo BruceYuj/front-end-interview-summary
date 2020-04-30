@@ -77,7 +77,7 @@ JavaScript 中不存在 class-based 的语言中的 methods. 在 JavaScript 中�
 ### 实际使用中的细节
 在浏览器环境中， `Object` 、 `Function` 、 `Object.prototype` 、 `Function.prototype` 等之间究竟存在着怎样的关系？
 
-![prototype-chain](../images/200115-JavaScript-prototype-chain.jpg)
+![prototype-chain](./images/200115-JavaScript-prototype-chain.jpg)
 
 ### 创建 object 的不同方式以及产生的 prototype chain
 1. 使用语法结构来创建 object

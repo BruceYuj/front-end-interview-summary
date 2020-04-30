@@ -40,14 +40,14 @@ for(var i = 0; i < 3; i++) {
 ## 细节
 下面我们通过 [ECMAScript 2020 the for statement](https://tc39.es/ecma262/#sec-for-statement) 是如何保证向后兼容的基础上加入块级作用域的。
 
-![](../images/200225-javascript-block-scope-1.png)
+![](./images/200225-javascript-block-scope-1.png)
 
 下面，我们分析下上面这段过程：
 1. JavaScript engine 遇到 for 循环时，如果发现第一个表达式是 [lexical delcaration](javascript-declaration.md)（具体可以看我的另一篇文档），也就是有通过`let` 或者 `const` 声明变量。engine 会生成一个新的 environment record（这里是 loopEnv） 指向旧的 environment record（这里是 oldEnv），然后将 lexical declaration 声明的变量全部绑定到 loopEnv 后将 loopEnv 绑定到当前的 execution context。
 2. 绑定好新的 loopEnv，算法就进入了 `ForBodyEvaluation`，也就是我们的循环体。
 
 那么在循环体里面，engine 会怎么做呢？规范写的一清二楚，如下图：
-![](../images/200225-javascript-block-scope-2.png)
+![](./images/200225-javascript-block-scope-2.png)
 
 在这里，我只需要注意 `CreatePerIterationEnvironment` ，这个抽象操作是用来创建每次迭代的 environment record的。也就是说，每重新进入一次 for body，如果有 let declaration，就会重新生成一个 environment record（这也是为什么称boundNames 为 perIterationLets的原因）。
 

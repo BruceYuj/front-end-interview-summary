@@ -21,7 +21,7 @@
 这段话把 let 和 const 的功能描述的清清楚楚，下面我把它一一拆解：
 1. let 和 const declaration 被用来定义变量。这些变量归属于 running execution context 的 LexicalEnvironment。running execution context 表示当前正在执行的上下文。 LexicalEnvironment（可以翻译为词法环境，尽管个人认为这些专业词汇保持原滋原味即可，毕竟英语和中文很多都不能直译）可以当做单链表的结点，结点里面有一个 environement record 和 “指针”。“指针”指向外层的 lexical environment， environment record 用来记录 identifier bindings(标识符绑定，比如 `var a;` a 就是一个标识符)。
 2. javascript engine 在进入当前 execution context 时会先初始化包含的 lexical environment，而我们通过 let 和 const declaration 定义的变量就在这个时候被 created（创建）。**但是在这个阶段我们不能够通过任何方式来访问这些变量。**
-![](../images/20200223-javascript-declaration-1.png)
+![](./images/20200223-javascript-declaration-1.png)
 1. 在 lexicalBinding 被执行的时候会对变量进行赋值操作。如果 let declaration 没有相应的 initializer，则该变量被赋值 undefined。
 那么什么是 initializer? 看段代码：
 `let a =  3 + 4;` 而 `3+4` 这个 expression 就是 initializer。
@@ -60,7 +60,7 @@ with(c) {
 
 
 **下面就是由上面的规范得出的图：**:
-![](../images/200224-javascript-declaration.jpg)
+![](./images/200224-javascript-declaration.jpg)
 
 
 1. **同时回答问题1和问题二**：

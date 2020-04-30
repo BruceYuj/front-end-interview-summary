@@ -1,30 +1,30 @@
-**文本更新于 2020年04月22日 19:02:07**
+function MaxHeap(){
   this.count = 0;
   this.arr = new Array(capacity+1);
 }
 
-MinHeap.prototype.add = function(v) {
+MaxHeap.prototype.add = function(v) {
   this.arr[++this.count] = v;
   this.swim(this.count);
 }
 
-MinHeap.prototype.delMin = function() {
-  let min = this.arr[1];
+MaxHeap.prototype.delMax = function() {
+  let max = this.arr[1];
   this.exchange(1, this.count--);
   this.arr[this.count+1] = undefined;
   this.sink(1);
-  return min;
+  return max;
 }
 
-MinHeap.prototype.isEmpty = function() {
+MaxHeap.prototype.isEmpty = function() {
   return this.count === 0;
 }
 
-MinHeap.prototype.size = function() {
+MaxHeap.prototype.size = function() {
   return this.count;
 }
 
-MinHeap.prototype.sink = function (k) {
+MaxHeap.prototype.sink = function (k) {
   while(2*k <= this.count) {
     let left = 2*k;
     if(left < this.count && this.less(left, left+1)) left++;
@@ -34,7 +34,7 @@ MinHeap.prototype.sink = function (k) {
   }
 }
 
-MinHeap.prototype.swim = function (k) {
+MaxHeap.prototype.swim = function (k) {
   while(k > 1 && this.less(Math.floor(k/2), k)) {
     this.exchange(Math.floor(k/2), k);
     k = Math.floor(k/2);
@@ -42,12 +42,12 @@ MinHeap.prototype.swim = function (k) {
 }
 
 
-MinHeap.prototype.exchange = function (i, j) {
+MaxHeap.prototype.exchange = function (i, j) {
   let tmp = this.arr[i];
   this.arr[i] = this.arr[j];
   this.arr[j] = tmp;
 }
 
-MinHeap.prototype.less = function ( i, j) {
-  return this.arr[i] > this.arr[j];
+MaxHeap.prototype.less = function ( i, j) {
+  return this.arr[i] < this.arr[j];
 }

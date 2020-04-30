@@ -38,7 +38,7 @@ console.log(d);
 这种情况出现在浏览器混战时期是很正常的，但是对于开发者来讲就很痛苦了，**最好的方式就是尽量少的使用，甚至不去使用它。**
 
 我们知道，从 ES 2015 开始，ECMAScript 中引入了 block-level scope。这个时候，block-level function declaration的概念就不可避免地被用到。而之前那种混乱的同种语法不同语义的情况需要整合。ECMAScript 列举了三种情况，如下图所示：
-![](../images/200324-block-level-function-case.png)
+![](./images/200324-block-level-function-case.png)
 
 1. 首先对于 case 1，这种情况完全符合规范中的 block level function declarartion 的语义，因此可以正常使用。
 2. 对于 case 2 和 3,这需要在已有的规范中增加额外的算法步骤。而增加的额外步骤主要针对三块：
@@ -47,7 +47,7 @@ console.log(d);
     - EvalDeclarationInstantiation
 
 而开头的代码就属于 GlobalDeclarationInstatiation，具体的额外步骤如下：
-![](../images/200324-block-level-function-global.png)
+![](./images/200324-block-level-function-global.png)
 
 规范讲的很清楚，这也是我为什么觉得edge 和 IE 的答案更加正确的原因。
 

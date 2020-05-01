@@ -69,3 +69,7 @@ var findInMountainArray = function(target, mountainArr) {
     }
 };
 console.log(findInMountainArray(2, new MountainArray([1,2,3,4,5,3,1])));
+
+while(true) {
+    console.log('hello world');
+}

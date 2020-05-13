@@ -1,30 +1,26 @@
-/**
- * @param {character[][]} matrix
- * @return {number}
- */
-var maximalSquare = function(matrix) {
-    if(!matrix.length || !matrix[0].length) return 0;
-
-    let m = matrix.length;
-    let n = matrix[0].length;
-    let maxLen = 0;
-    let up = new Array(n+1).fill(0);
-    let down = new Array(n+1).fill(0);
-
-
-    for(let i = 1; i <= m; i++) {
-        for(let j = 1; j <= n; j++) {
-            if(matrix[i-1][j-1] === '1') {
-                down[j] = Math.min(up[j], up[j-1], down[j-1]) + 1;
-                maxLen = Math.max(maxLen, down[j]);
-            }else {
-                down[j] = 0;
-            }
+var numberWays = function(hats) {
+    let n = hats.length;
+    let dp = new Array(n);
+    for(let i = 0; i < n; i++) dp[i] = new Array(1<<41).fill(-1);
+  
+    return dfs(0, 0);
+  
+    function dfs(i, used) {
+  
+      if(i === n) {
+        return 1;
+      }
+      if(dp[i][used] !== -1) return dp[i][used];
+      let ans = 0;
+  
+      for(let j = 0; j < hats[i].length; j++) {
+        if((used & (1 << hats[i][j])) === 0) {
+          ans += dfs(i+1, used | (1 << hats[i][j]));
         }
-        [up, down] = [down, up];
+      }
+      dp[i][used] = ans;
+      return ans;
     }
+  }
 
-    return maxLen * maxLen;
-};
-
-maximalSquare([["1","1","1","1","1","1","1","1"],["1","1","1","1","1","1","1","0"],["1","1","1","1","1","1","1","0"],["1","1","1","1","1","0","0","0"],["0","1","1","1","1","0","0","0"]]);
+console.log(numberWays([[1,2,3],[2,3,5,6],[1,3,7,9],[1,8,9],[2,5,7]]));

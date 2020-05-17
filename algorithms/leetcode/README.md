@@ -10,6 +10,7 @@
 - [56. 合并区间(medium)](main/56.md)
 - [74. 搜索二维矩阵(medium)](main/74.md)
 - [76. 最小覆盖子串(hard)](main/76.md)
+- [84. 柱状图中最大的矩形(hard)](main/84.md)
 - [110. 平衡二叉树(easy)](main/110.md)
 - [115. 不同的子序列(hard)](main/115.md)
 - [121. 买卖股票的最佳时机(easy)](./main/121.md)

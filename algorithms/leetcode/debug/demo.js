@@ -1,26 +1,42 @@
-var numberWays = function(hats) {
-    let n = hats.length;
-    let dp = new Array(n);
-    for(let i = 0; i < n; i++) dp[i] = new Array(1<<41).fill(-1);
-  
-    return dfs(0, 0);
-  
-    function dfs(i, used) {
-  
-      if(i === n) {
-        return 1;
-      }
-      if(dp[i][used] !== -1) return dp[i][used];
-      let ans = 0;
-  
-      for(let j = 0; j < hats[i].length; j++) {
-        if((used & (1 << hats[i][j])) === 0) {
-          ans += dfs(i+1, used | (1 << hats[i][j]));
-        }
-      }
-      dp[i][used] = ans;
-      return ans;
-    }
-  }
+/**
+ * @param {number[]} nums
+ * @return {number[]}
+ */
+var majorityElement = function(nums) {
+    if(nums.length <= 1) return nums;
 
-console.log(numberWays([[1,2,3],[2,3,5,6],[1,3,7,9],[1,8,9],[2,5,7]]));
+    let n1 = undefined;
+    let n2 = undefined;
+    let cnt1 = 0;
+    let cnt2 = 0;
+
+    for(let i = 0; i < nums.length; i++) {
+        if(cnt1 === 0) {
+            n1 = nums[i];
+            cnt1++;
+        } else if(nums[i] === n1) cnt1++;
+        else if(cnt2 === 0) {
+            n2 = nums[i];
+            cnt2++;
+        }else if(n2 === nums[i]) cnt2++;
+        else {
+            cnt1--;
+            cnt2--;
+        }
+    }
+
+    cnt1 = 0;
+    cnt2 = 0;
+
+    for(let i = 0; i < nums.length; i++) {
+        if(n1 === nums[i]) cnt1++;
+        if(n2 === nums[i]) cnt2++;
+    }
+
+    let ans = [];
+    if(cnt1 > Math.floor(nums.length/3)) ans.push(n1);
+    if(cnt2 > Math.floor(nums.length/3)) ans.push(n2);
+
+    return ans;
+};
+console.log(majorityElement([0,-1,2,-1]));

@@ -1,7 +1,8 @@
-**文本更新于 2020年05月18日 11:04:12**
+**文本更新于 2020年05月19日 11:47:56**
 - [11. 盛最多水的容器(medium)](main/11.md)
 - [22. 括号生成(medium)](main/22.md)
 - [24. 两两交换链表中的节点(medium)](main/24.md)
+- [25. K 个一组翻转链表(hard)](main/25.md)
 - [26. 删除排序数组中的重复项(easy)](./main/26.md)
 - [30. 串联所有单词的子串(hard)](main/30.md)
 - [33. 搜索旋转排序数组(medium)](main/33.md)
@@ -12,6 +13,7 @@
 - [74. 搜索二维矩阵(medium)](main/74.md)
 - [76. 最小覆盖子串(hard)](main/76.md)
 - [84. 柱状图中最大的矩形(hard)](main/84.md)
+- [92. 反转链表 II(medium)](main/92.md)
 - [110. 平衡二叉树(easy)](main/110.md)
 - [115. 不同的子序列(hard)](main/115.md)
 - [121. 买卖股票的最佳时机(easy)](./main/121.md)
@@ -32,6 +34,7 @@
 - [221. 最大正方形(medium)](main/221.md)
 - [229. 求众数 II(medium)](main/229.md)
 - [231. 2的幂(easy)](./main/231.md)
+- [234. 回文链表(easy)](main/234.md)
 - [239. 滑动窗口最大值(hard)](LCOF/main/59-I.md)
 - [240. 搜索二维矩阵 II(medium)](main/240.md)
 - [260. 只出现一次的数字 III(medium)](./main/260.md) 
@@ -50,6 +53,7 @@
 - [543. 二叉树的直径(easy)](main/543.md)
 - [560. 和为K的子数组(medium)](main/560.md)
 - [611. 有效三角形的个数(medium)](main/611.md)
+- [680. 验证回文字符串 Ⅱ(easy)](main/680.md)
 - [695.	岛屿的最大面积(medium)](main/695.md)
 - [714. 买卖股票的最佳时机含手续费(medium)](./main/714.md)
 - [764. 最大加号标志(medium)](main/764.md)

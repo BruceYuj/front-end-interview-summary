@@ -1,42 +1,50 @@
-/**
- * @param {number[]} nums
- * @return {number[]}
- */
-var majorityElement = function(nums) {
-    if(nums.length <= 1) return nums;
 
-    let n1 = undefined;
-    let n2 = undefined;
-    let cnt1 = 0;
-    let cnt2 = 0;
+var maximalRectangle = function(matrix) {
+    if(!matrix.length || !matrix[0].length) return 0;
 
-    for(let i = 0; i < nums.length; i++) {
-        if(cnt1 === 0) {
-            n1 = nums[i];
-            cnt1++;
-        } else if(nums[i] === n1) cnt1++;
-        else if(cnt2 === 0) {
-            n2 = nums[i];
-            cnt2++;
-        }else if(n2 === nums[i]) cnt2++;
-        else {
-            cnt1--;
-            cnt2--;
-        }
+    let m = matrix.length;
+    let n = matrix[0].length;
+    let ans = 0;
+
+    let heights = new Array(n).fill(0);
+    let leftMin = new Array(n).fill(-1);
+    let rightMin = new Array(n).fill(n);
+
+    for(let i = 0; i < m; i++) {
+      for(let j = 0; j < n; j++) {
+          if(matrix[i][j] === '1') heights[i]++;
+          else heights[i] = 0;
+      }
+
+      let boundary = -1;
+
+      for(let j = 0; j < n; j++) {
+          if(matrix[i][j] === '1') {
+              leftMin[j] = Math.max(boundary, leftMin[j]);
+          } else {
+              leftMin[j] = -1;
+              boundary = j;
+          }
+      }
+
+
+      boundary = n;
+      for(let j = n-1; j >= 0; j--) {
+          if(matrix[i][j] === '1') {
+              rightMin[j] = Math.min(boundary, rightMin[j]);
+          } else {
+              rightMin[j] = n;
+              boundary = j;
+          }
+      }
+
+      for(let j = 0; j < n; j++) {
+          ans = Math.max(ans, heights[j]*(rightMin[j] - leftMin[j]-1));
+      }
     }
 
-    cnt1 = 0;
-    cnt2 = 0;
+      return ans;
+}
 
-    for(let i = 0; i < nums.length; i++) {
-        if(n1 === nums[i]) cnt1++;
-        if(n2 === nums[i]) cnt2++;
-    }
 
-    let ans = [];
-    if(cnt1 > Math.floor(nums.length/3)) ans.push(n1);
-    if(cnt2 > Math.floor(nums.length/3)) ans.push(n2);
-
-    return ans;
-};
-console.log(majorityElement([0,-1,2,-1]));
+console.log(maximalRectangle([["1","0"]]))

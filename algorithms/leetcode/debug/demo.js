@@ -1,50 +1,44 @@
+/**
+ * @param {string} s
+ * @return {string}
+ */
+var longestPalindrome = function(s) {
+    if(s.length === 0) return '';
+    let  max = 0;
+    let ans = null;
 
-var maximalRectangle = function(matrix) {
-    if(!matrix.length || !matrix[0].length) return 0;
+    for(let i = 0; i < s.length; i++) {
+        let tmp1 = expandByIndex(i, i);
 
-    let m = matrix.length;
-    let n = matrix[0].length;
-    let ans = 0;
+        let tmp2 = expandByIndex(i, i+1);
 
-    let heights = new Array(n).fill(0);
-    let leftMin = new Array(n).fill(-1);
-    let rightMin = new Array(n).fill(n);
+        let len1 = (tmp1-1) * 2 + 1;
+        let len2 = tmp2 * 2;
 
-    for(let i = 0; i < m; i++) {
-      for(let j = 0; j < n; j++) {
-          if(matrix[i][j] === '1') heights[i]++;
-          else heights[i] = 0;
-      }
+        if(len1 > max) {
+            max = len1;
+            ans = [i-tmp1+1, i+tmp1-1];
+        }
 
-      let boundary = -1;
-
-      for(let j = 0; j < n; j++) {
-          if(matrix[i][j] === '1') {
-              leftMin[j] = Math.max(boundary, leftMin[j]);
-          } else {
-              leftMin[j] = -1;
-              boundary = j;
-          }
-      }
-
-
-      boundary = n;
-      for(let j = n-1; j >= 0; j--) {
-          if(matrix[i][j] === '1') {
-              rightMin[j] = Math.min(boundary, rightMin[j]);
-          } else {
-              rightMin[j] = n;
-              boundary = j;
-          }
-      }
-
-      for(let j = 0; j < n; j++) {
-          ans = Math.max(ans, heights[j]*(rightMin[j] - leftMin[j]-1));
-      }
+        if(len2 > max) {
+            max = len2;
+            ans = [i-tmp2, i+tmp2+1];
+        }
     }
 
-      return ans;
-}
+    return s.slice(ans[0], ans[1]+1);
 
 
-console.log(maximalRectangle([["1","0"]]))
+    function expandByIndex(i, j) {
+        let step = 0;
+        while(i >= 0 && j < s.length && s[i] === s[j]) {
+            i--;
+            j++;
+            step++;
+        }
+
+        return step;
+    }
+};
+
+console.log(longestPalindrome('cbbd'));

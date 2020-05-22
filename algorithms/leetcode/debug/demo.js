@@ -1,44 +1,61 @@
 /**
- * @param {string} s
- * @return {string}
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
  */
-var longestPalindrome = function(s) {
-    if(s.length === 0) return '';
-    let  max = 0;
-    let ans = null;
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {TreeNode} root
+ * @return {number}
+ */
 
-    for(let i = 0; i < s.length; i++) {
-        let tmp1 = expandByIndex(i, i);
+var longestZigZag = function(root) {
+    let map = {};
+    let map2 = {};
 
-        let tmp2 = expandByIndex(i, i+1);
+    return dfs(root);
 
-        let len1 = (tmp1-1) * 2 + 1;
-        let len2 = tmp2 * 2;
+    function dfs(root) {
+        if(!root) return 0;
 
-        if(len1 > max) {
-            max = len1;
-            ans = [i-tmp1+1, i+tmp1-1];
-        }
 
-        if(len2 > max) {
-            max = len2;
-            ans = [i-tmp2, i+tmp2+1];
-        }
+        let left = helper(root.left, true);
+        let right = helper(root.right, false);
+
+        left = Math.max(left, dfs(root.left));
+        right = Math.max(right, dfs(root.right));
+
+        return Math.max(left, right); 
     }
 
-    return s.slice(ans[0], ans[1]+1);
 
+    function helper(node, direction) {
+        if(!node) return 0;
+        if(direction) {
+            if(map2[node]) return 1 + map2[node];
+            map2[node] = helper(node.right, !direction);
+            return 1+map2[node];
+        } else{
+            if(map[node]) return 1+map[node];
+            map[node] = helper(node.left, !direction);
 
-    function expandByIndex(i, j) {
-        let step = 0;
-        while(i >= 0 && j < s.length && s[i] === s[j]) {
-            i--;
-            j++;
-            step++;
+            return 1+map[node];
         }
-
-        return step;
     }
 };
 
-console.log(longestPalindrome('cbbd'));
+let root = makeTreeFromArr([1,1,1,1,null,1,null,null,1,1]);
+
+console.log(longestZigZag(root));

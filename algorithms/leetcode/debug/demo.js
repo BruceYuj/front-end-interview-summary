@@ -1,59 +1,23 @@
-/**
- * @param {string} s
- * @return {string}
- */
-var decodeString = function(s) {
-    let n = s.length;
-    let num = '';
-    let encoded = '';
-    let stack = [];
+var generateParenthesis = function(n) {
+    if(n === 0) return [];
+    let res = [];
+    let left = 0;
+    let right = 0;
 
-    let ans = '';
+    backtrack('', 0, 0, n);
 
-    for(let i = 0; i < n; i++) {
-        if(s[i] === ']') {
-            let status = 0;
-            while(stack.length) {
-                let top = stack.pop();
-                let code = top.charCodeAt(0);
-                if(top === '[' && status === 0) {
-                    status = 1;
-                    continue;
-                }
-                if(code >= 48 && code <= 57 && status === 1) {
-                    status = 2;
-                    num= top + num;
-                    continue;
-                }
-                if(status === 0)encoded = top + encoded;
-                else {
-                    stack.push(top);
-                    break;
-                }
-            }
-            let count = parseInt(num);
-            if(num === '' && encoded.length) {
-                stack.push(encoded);
-            } else {
-                let tmp = '';
-                while(count) {
-                    tmp += encoded;
-                    count--;
-                }
-                stack.push(tmp);
-            }
-            num = '';
-            encoded = '';
-        }else {
-            stack.push(s[i]);
+    return res;
+
+    function backtrack(path, open , close, max) {
+        if(path.length === 2*n) {
+            res.push(path);
+            return;
         }
-        
-    }
 
-    for(let i = 0; i < stack.length; i++) {
-        ans += stack[i];
+        if(open < max) backtrack(path+'(', open+1, close, max);
+        if(close < open) backtrack(path+')', open, close+1, max);
+
     }
-    return ans;
 };
 
-console.log(decodeString("100[leetcode]"))
+console.log(generateParenthesis(3));

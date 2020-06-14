@@ -7,3 +7,4 @@
 # .gitignore
 script.py
 */debug
+node_modules

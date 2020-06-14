@@ -17,16 +17,7 @@
 1. [编程范式“游记”(on going)]()
 
 ### 数据结构与算法
-1. 排序相关
-2. 图论相关
-3. 数论相关
-4. 树相关
-5. 字符串相关
-    - [字符串匹配算法系列](./integration/string-match-algo.md)
-#### LeetCode 刷题
-**目前进度(387/2020-05-20)**
 
-[LeetCode 题解](./algorithms/leetcode/README.md)
 
 # 学习观
 1. [BY 的思考系列](integration/by-thinking-series.md)

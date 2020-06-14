@@ -1,4 +1,4 @@
-**文本更新于 2020年05月20日 14:37:51**
+**文本更新于 2020年06月 4日  9:29:43**
 # basics
 ## 前端(front end)
 ### JavaScript
@@ -17,7 +17,6 @@
 1. [编程范式“游记”(on going)]()
 
 ### 数据结构与算法
-
 
 # 学习观
 1. [BY 的思考系列](integration/by-thinking-series.md)

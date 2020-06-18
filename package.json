@@ -7,16 +7,19 @@
   "author": "bruceyuj <444048170@qq.com>",
   "license": "MIT",
   "scripts": {
+    "start": "nodemon --ext md,vue,js --watch .vuepress --watch . --exec vuepress dev docs",
     "docs:dev": "vuepress dev docs",
     "docs:build": "vuepress build docs"
   },
   "devDependencies": {
     "@vuepress/plugin-back-to-top": "^1.5.1",
     "@vuepress/plugin-google-analytics": "^1.5.1",
+    "@vuepress/plugin-medium-zoom": "^1.5.2",
     "@vuepress/plugin-pwa": "^1.5.1",
+    "nodemon": "^2.0.4",
     "vuepress": "^1.5.1",
     "vuepress-plugin-auto-sidebar": "^1.4.1",
     "vuepress-plugin-mathjax": "^1.2.8",
-    "vuepress-plugin-medium-zoom": "^1.1.8"
+    "watchpack": "1.6.1"
   }
 }

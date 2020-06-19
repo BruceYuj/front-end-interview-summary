@@ -1,5 +1,6 @@
 ---
 title: HTTP 协议的简单定义
+autoPev: http-history
 ---
 
 ## 脑图

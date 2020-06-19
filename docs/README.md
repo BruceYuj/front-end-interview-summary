@@ -2,7 +2,7 @@
 home: true
 heroImage: https://myblog-1257043911.cos.ap-chengdu.myqcloud.com/config/logo_1.png
 heroText: BY 的前端相关笔记
-actionText: 查看题解
+actionText: 查看笔记
 actionLink: /network/http/
 features:
 - title: 搜索

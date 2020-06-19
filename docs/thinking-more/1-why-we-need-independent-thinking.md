@@ -1,4 +1,8 @@
-**文本更新于 2020年04月23日 19:24:11**
+---
+title: HTTP 协议的发展进程
+autoPrev: README
+---
+
 # 论思考
 ![](./images/1-why-need-independent/the-thinker.jpg)
 ## 导言

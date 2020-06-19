@@ -1,6 +1,6 @@
 ---
 title: 从 HTTP 协议角度理解网站运作过程
-autoPev: http-definition
+autoPrev: "2-http-definition"
 ---
 
 ## 脑图

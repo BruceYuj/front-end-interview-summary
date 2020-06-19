@@ -1,6 +1,6 @@
 ---
 title: HTTP 协议的简单定义
-autoPev: http-history
+autoPrev: "1-http-history"
 ---
 
 ## 脑图

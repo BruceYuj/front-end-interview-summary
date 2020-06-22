@@ -1,6 +1,6 @@
 ---
 title: HTTP 当中的请求方法
-autoPrev: "3-http-actual-process"
+autoPrev: "4-http-concepts"
 ---
 
 ## 脑图

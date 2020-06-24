@@ -1,5 +1,7 @@
- 
- 
+---
+title: 如何理解 ECMAScript 中的 completion record
+autoPrev: README
+--- 
  
 ## 简介
 本篇主要理解 ECMAScript 文档的 specification type - completion record。

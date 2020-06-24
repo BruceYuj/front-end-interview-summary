@@ -1,4 +1,7 @@
- 
+---
+title: 理解 Array.protoype.map 的细节
+autoPrev: README
+---  
  
  
 ## 简介

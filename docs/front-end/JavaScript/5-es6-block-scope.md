@@ -1,4 +1,7 @@
- 
+---
+title: ECMAScript 是如何通过 declaration 识别 block scope的
+autoPrev: README
+---  
  
  
 ## 简介

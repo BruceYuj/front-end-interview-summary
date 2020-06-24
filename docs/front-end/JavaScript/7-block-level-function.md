@@ -1,4 +1,7 @@
- 
+---
+title: 如何理解 ES6以后 的block-level function declaration 和 Web Legacy Compatibility Semantics
+autoPrev: README
+---  
  
  
 首先看一道题：

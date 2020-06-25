@@ -40,7 +40,11 @@ autoPrev: README
 
 总结来看，MIME 的出现和 HTTP 协议的蓬勃发展都有一个重要的原因，**一切都是需求的推动。而作为计算机领域的从业者该如何从这些鲜活的历史设计当中获取经验是非常值得思考的一件事。换句话说，如果你站在当时的角度来看，是否能够做出符合发展的决策并能够推进它。**
 
-------
-> 遵循 MIT 协议，转载请联系作者。更多文章请关注公众号（点击下方链接）或者 Star GitHub repo.
+----
+> 我是 BY，一个有趣的人，以后会带来更多的原创文章。
+> 
+> 本文章遵循 MIT 协议，转载请联系作者。
+> 
+> 有兴趣可以关注公众号（点击下方链接）或者 Star GitHub repo.
 
-[更多文章](https://www.bruceyj.com/front-end-interview-summary/info/)
+[公众号，更多文章](https://www.bruceyj.com/front-end-interview-summary/info/)

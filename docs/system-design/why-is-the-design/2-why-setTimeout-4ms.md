@@ -58,7 +58,7 @@ setTimeout(() => {
 ![](./iamges/../images/2-why-settimeout-4ms-2.png)
 
 看上图我们会发现，对于 `setTimeout` 设置延迟 `0ms` 和 `1ms`，各大浏览器厂商采取了两种策略。而具体的策略是怎样的的，待我们进入到浏览器源码中来查找（在这里我们只展示 chromium 的 source code，其他 webkit 或 Firefox 自行下载查看），在 chromium 的 blink 目录下，有一个 叫做 DOMTimer.cpp 的文件，[online 地址](https://chromium.googlesource.com/chromium/blink/+/master/Source/core/frame/DOMTimer.cpp#93)，这里也是用来设置计时器延时的地方：
-```c++
+```C++
 static const int maxIntervalForUserGestureForwarding = 1000; // One second matches Gecko.
 static const int maxTimerNestingLevel = 5;
 static const double oneMillisecond = 0.001;

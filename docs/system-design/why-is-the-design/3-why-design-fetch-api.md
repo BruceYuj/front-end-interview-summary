@@ -47,7 +47,17 @@ xhr.send();
 你会发现，这几个时间线是很接近的，如果你再联想到 JavaScript，当时 JavaScript 世界的最重大事件莫过于 ES2015 被一步步标准化（这也意味着 Promise 被正式引入标准，尽管 `Promise` 的理念早已经在程序世界家喻户晓），因此上面的几个产品不约而同地使用了 `Promise`的方式来设计各自上层的 API（这也侧面说明了回调这种异步写法不太符合程序员线性顺序处理思维）。
 
 我们们来看看 `fetch API` 在设计时主要考虑点在哪里：
-1. 使用最新的 Promise 语法结构，对上层用户编程更加友好
+1. 使用最新的 Promise 语法结构，对上层用户编程更加友好（但也是后面对于 abort 特性讨论的根源）
+
+具体 `fetch API` 使用方式如下：
+```javascript
+fetch(url)
+  .then((r) => r.json())
+  .then((data) => console.log(data))
+  .catch((e) => console.log('error'))
+```
+代码组织比最开始的 `XHR` 更加清爽了很多，如果使用 `async/await` 语法则更加简洁。
+
 2. 整个设计更加底层，这意味着在实际使用过程当中能够进行更多的弹性设计
 3. 关注点分离，request / response / header 分开，这也意味着能够更加灵活的使用这些 API（比如 request 结合 service worker 来使用，具体看下面的代码）：
 ```javascript
@@ -63,14 +73,6 @@ self.addEventListener('fetch', function (event) {
 ```
 在上面的代码中， `event.request` 是一个 `Request`。这意味着可以直接在客户端实现 `response`，而不是让浏览器去请求网络，这样可以结合 `cache` 实现某些灵活地功能，这是 `XHR` 不能实现的。
 
-具体 `fetch API` 使用方式如下：
-```javascript
-fetch(url)
-  .then((r) => r.json())
-  .then((data) => console.log(data))
-  .catch((e) => console.log('error'))
-```
-代码组织比最开始的 `XHR` 更加清爽了很多，如果使用 `async/await` 语法则更加简洁。
 
 **但是一项新技术方案的出现，一定会引起业界的讨论，甚至是争议**。很明显，`fetch API` 尽管有非常先进的设计理念，但仍然带来了不少的争议（尤其是 `fetch API` 很难实现某些 `XHR` 的功能时），这类争议被我分为两类：
 1. 第一类是误解，我会简单描述几个
@@ -120,18 +122,18 @@ xhr.send();
 
 
 在最开始的讨论中，主要有两种方案：
-1. 使用 `cancelable promise` 方案（由 jake archibald 提出），具体使用如下：
+1. 使用 `cancelable promise` 方案（由 jake archibald 提出），也就是特别封装一个 `CancellablePromise`，具体使用如下：
 ```javascript
 var requestPromise = fetch(url);
 var jsonPromise = requestPromise.then(r => r.clone().json());
 var textPromise = requestPromise.then(r => r.text());
 textPromise.abort();
 ```
-这种方案你咋眼一看，是不是非常的完美，也比较符合原有 `XHR` 的写法（需要注意的是这里的 promise 是特别封装的 `CancellablePromise`）。
+这种方案你定眼一看，是不是非常的完美，也比较符合原有 `XHR` 的写法。
 
 但是这种方案却受到另一方的强烈反对，主要代表是 getify（《you don't know js》 作者，个人认为其水平很高，但是容易夹带私货）。它反对的点主要是更加深层次的设计，其认为该方案是 **action at a distance**(这里的 **action at a distance** 指的是一种 **anti-pattern**，通常在现代程序设计中非常不推荐使用，因为其会带来很多不可控性，详细信息 wiki 里面有介绍)，并且认为这类做法在最开始 `promise` 引入 ES6 时已经有了很多的讨论。简单点讲，如果引入 `abort()` 会带来 `promise` 内部 observer 的设计矛盾（观察者，这里有牵扯到 promise 在 js engine 中如何被实现的，具体另外写一篇讨论），并且对于 `async/await` 的设计也会带来问题。
 
-**到这里，你是不是已经能体会到上面简单的特性引入究竟是怎么带来深层次设计问题的。**
+**到这里，你是不是已经能体会到上面简单的特性引入究竟是怎么涉及到深层次设计问题的。**
 
 另外需要提到一点的是，规范在设计一个新的 API，也需要考虑是否会影响到的方案，因为各个方案参与者并不一样（比如对于 `streams API` 是否有影响）
 
@@ -175,6 +177,11 @@ fetch(url, { signal }).then(response => {
 
 那是因为各种优秀的库（`XHR` 封装）基本能够满足上层应用者大部分的功能需求，并且也没有特别大的缺点，那么为什么还要冒着风险使用新的 `fetch API` 呢？这是不是也体现了你已经默默做了技术选择的 tradeoff 呢？
 
+尽管有种种的问题，但是 `fetch API` 的未来仍然是光明的，npm 的 polyfill 包下载量也能简单的说明问题：
+- `whatwg-fetch` 的周下载量是 `8,744,612`
+- `axios` 的周下载量是 `10,041,206`
+
+两者的差距也并不是太远，不是吗？
 
 ## reference
 1. https://developers.google.com/web/updates/2017/09/abortable-fetch

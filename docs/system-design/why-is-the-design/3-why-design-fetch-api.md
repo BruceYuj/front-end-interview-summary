@@ -83,7 +83,7 @@ self.addEventListener('fetch', function (event) {
 很明显，上面的话陷入了一个误区，“一个设计良好的、简洁的 API 就是 high level的”。如果仔细看过规范的，你会发现， XHR 目前是建立在 fetch 的基础上的，有规范为证(在 XHR 的 `send()` 上)：
 > Fetch req. Handle the tasks queued on the networking task source per below.
 
-也就是说，`fetch` API 实际上更加低阶，也就会给上层开发者（指的普通前端开发者）。
+也就是说，`fetch` API 实际上更加低阶，也就会给上层开发者提供更加灵活的能力（指的普通前端开发者）。
 
 第二个误解是（也是社区经常抱怨的），认为**规范需要提供一个更加完善的东西，而不是一个半成品**。
 
@@ -137,7 +137,7 @@ textPromise.abort();
 
 另外需要提到一点的是，规范在设计一个新的 API，也需要考虑是否会影响到的方案，因为各个方案参与者并不一样（比如对于 `streams API` 是否有影响）
 
-在讨论过程中，两方都无法说服对方，直到后来第一种方案出现可能的安全问题，才被直接否决。但是 `abort` 的需求仍然是存在的，最终第二种方案 `controller + signal` 被确定下来（具体讨论看下面的链接 3）。
+在讨论过程中，两方都无法说服对方，直到后来第一种方案出现可能的安全问题，才被直接否决。但是 `abort` 的需求仍然是存在的，最终第二种方案 `controller + signal` 被确定下来（具体讨论细节看上面的链接 3）。
 
 正如我在 《为什么 setTimeout 的最小延迟是 4ms》 中一直在讲的观点是，“**对于同一个需求，不同参与方的思考角度不一样，会带来不同的方案，也就会产生很多不同的 tradeoff。而如何思考、权衡，则是架构师的必备技能**”
 
@@ -187,7 +187,7 @@ fetch(url, { signal }).then(response => {
 1. https://developers.google.com/web/updates/2017/09/abortable-fetch
 2. https://developer.mozilla.org/en-US/docs/Web/API/AbortController
 3. https://github.com/github/fetch
-4. https://github.com/whatwg/fetch/issues/20
+4. https://github.com/whatwg/fetch/issues/27
 5. https://github.com/AnthumChris/fetch-progress-indicators
 6. https://jakearchibald.com/2015/thats-so-fetch/
 7. https://developers.google.com/web/updates/2015/03/introduction-to-fetch

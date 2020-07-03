@@ -46,7 +46,7 @@ xhr.send();
 
 你会发现，这几个时间线是很接近的，如果你再联想到 JavaScript，当时 JavaScript 世界的最重大事件莫过于 ES2015 被一步步标准化（这也意味着 Promise 被正式引入标准，尽管 `Promise` 的理念早已经在程序世界家喻户晓），因此上面的几个产品不约而同地使用了 `Promise`的方式来设计各自上层的 API（这也侧面说明了回调这种异步写法不太符合程序员线性顺序处理思维）。
 
-我们们来看看 `fetch API` 在设计时主要考虑点在哪里：
+我们来看看 `fetch API` 在设计时主要考虑点在哪里：
 1. 使用最新的 Promise 语法结构，对上层用户编程更加友好（但也是后面对于 abort 特性讨论的根源）
 
 具体 `fetch API` 使用方式如下：
@@ -114,7 +114,7 @@ xhr.send();
 首先看 request aborting 功能，在 `XHR` 中，中断一个请求可以直接调用 `XHR` 实例上的 `abort()` 方法，并且可以使用事件监听（`onabort` 事件），监听请求中断，作出相应的响应。
 对于超时中断，`XHR` 实例提供了 `timeout` 属性来帮助我们方便的实现功能，同时 `XHR` 还提供了 `ontimeout` 事件（这里就不聊具体代码如何写了，Google 一下就行）
 
-在最开始的 `fetch API` 并没有提供上面的功能（**这里你可以先思考一个问题，为什么这么简单的 API 实现，在 `fetch API` 中就成了非常激烈的讨论？**），具体的讨论总共经历了漫长的两年之久，堪称 `fetch API` 讨论最激烈的特性了，其主要分为以下几个阶段(在这里我不过多描述争论的细节，只解释几个方案的 tradeoff，细节可以看我给出的链接)：
+在最开始的 `fetch API` 并没有提供上面的功能（**这里你可以先思考一个问题，为什么这么简单的 API 实现，在 `fetch API` 中就成了非常激烈的讨论？**），具体的讨论总共经历了漫长的两年之久，堪称 `fetch API` 讨论最激烈的特性了，我先给出讨论的几个阶段(在这里我不过多描述争论的细节，只解释几个方案的 tradeoff，细节可以看我给出的链接)：
 1. 最初的讨论 [whatwg/issue 27](https://github.com/whatwg/fetch/issues/27), 这个 issue 讨论的目的是如何提供给上层开发者一个方便的方法来终止 `fetch`。
 2. cancelable promise 方案由于安全原因被否，具体细节在 [tc39/proposal-cancelable-promises#4](https://github.com/tc39/proposal-cancelable-promises/issues/4)。(题外话，cancelable promises 规范提出者 domenic 和 chrome 团队产生激烈争论，由于 chrome 团队强烈反对导致该方案被废弃)
 3. 其他方案另开一贴继续讨论（由此可以看出讨论之激烈） [whatwg/issue 447](https://github.com/whatwg/fetch/issues/447)
@@ -124,20 +124,29 @@ xhr.send();
 在最开始的讨论中，主要有两种方案：
 1. 使用 `cancelable promise` 方案（由 jake archibald 提出），也就是特别封装一个 `CancellablePromise`，具体使用如下：
 ```javascript
-var requestPromise = fetch(url);
-var jsonPromise = requestPromise.then(r => r.clone().json());
-var textPromise = requestPromise.then(r => r.text());
-textPromise.abort();
-```
-这种方案你定眼一看，是不是非常的完美，也比较符合原有 `XHR` 的写法。
+var p = fetch(url).then(r => r.json());
+p.abort(); // cancels either the stream, or the request, or neither (depending on which is in progress)
 
-但是这种方案却受到另一方的强烈反对，主要代表是 getify（《you don't know js》 作者，个人认为其水平很高，但是容易夹带私货）。它反对的点主要是更加深层次的设计，其认为该方案是 **action at a distance**(这里的 **action at a distance** 指的是一种 **anti-pattern**，通常在现代程序设计中非常不推荐使用，因为其会带来很多不可控性，详细信息 wiki 里面有介绍)，并且认为这类做法在最开始 `promise` 引入 ES6 时已经有了很多的讨论。简单点讲，如果引入 `abort()` 会带来 `promise` 内部 observer 的设计矛盾（观察者，这里有牵扯到 promise 在 js engine 中如何被实现的，具体另外写一篇讨论），并且对于 `async/await` 的设计也会带来问题。
+var p2 = fetch(url).then(response => {
+  return new CancellablePromise(resolve => {
+    drainStream(
+      response.body.pipeThrough(new StreamingDOMDecoder())
+    ).then(resolve);
+  }, { onCancel: _ => response.body.cancel() });
+});
+```
+首先这种方案的第一个需要考虑的问题是，该叫什么才能不产生歧义，`abort`(和 `XHR` 保持一致)、`terminate` 还是 `cancel`。注意这也是非常重要的，因为一个新的 API 设计一定要考虑其语义性。
+
+先把命名放一边，你会发现这种方案对于上层开发者是不是特别友好，也比较符合原有 `XHR` 的写法。
+
+但是这种方案却受到另一方的强烈反对，主要代表是 getify（《you don't know js》 作者，个人认为其水平很高，但是容易夹带私货）。它反对的点主要是更加深层次的设计，我们来看下他主要的论点是什么：
+1. `cancelable promise` 的设计背离了 `promise` 的设计（如果后面看不懂，这个论点看到这里就可以了），如果我们的设计将 abort 特性独立在 promise 的创造上下文，那么意味着 `promise ` 会丢失可信赖性，影响对于内部的 promise 观察（这种讨论在最开始 `promise` 引入 ES6 时已经进行了很久，你仔细思考下 promise 的 resolve 和 reject 是不是在初始化时就已经确定了，这也是显示了一种不可变性）
+2. `Abort != Promise Cancelation... Abort == async Cancel`。这句话的含义是 promise 的取消意味着 `fetch` 的终止，这是 **back-pressure**。这样是不是会给 `async/await` 的某些设计带来问题。规范在设计一个新的 API，也需要考虑是否会影响到的方案，因为各个方案参与者并不一样（比如对于 `streams API` 是否有影响）
+3. 其认为该方案使 **单个 promise reference 能够取消整个 promise** 是 **action at a distance**(这里的 **action at a distance** 指的是一种 **anti-pattern**，通常在现代程序设计中非常不推荐使用，因为其会带来很多不可控性，详细信息 wiki 里面有介绍)
+
+到这里，不同的讨论方都相应给出了各自设计的考虑点，但是却谁也说服不了谁，直到后来第一种方案出现可能的安全问题，才被直接否决。但是 `abort` 的需求仍然是存在的，尽管 `controller + signal` 的方案看起来没有那么的优雅，但是再第一种方案有重大问题时，其他方案的缺点就显得没那么重要了。最终第二种方案 `controller + signal` 被确定下来（具体讨论细节看上面的链接 3）。
 
 **到这里，你是不是已经能体会到上面简单的特性引入究竟是怎么涉及到深层次设计问题的。**
-
-另外需要提到一点的是，规范在设计一个新的 API，也需要考虑是否会影响到的方案，因为各个方案参与者并不一样（比如对于 `streams API` 是否有影响）
-
-在讨论过程中，两方都无法说服对方，直到后来第一种方案出现可能的安全问题，才被直接否决。但是 `abort` 的需求仍然是存在的，最终第二种方案 `controller + signal` 被确定下来（具体讨论细节看上面的链接 3）。
 
 正如我在 《为什么 setTimeout 的最小延迟是 4ms》 中一直在讲的观点是，“**对于同一个需求，不同参与方的思考角度不一样，会带来不同的方案，也就会产生很多不同的 tradeoff。而如何思考、权衡，则是架构师的必备技能**”
 

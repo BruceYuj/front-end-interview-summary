@@ -7,7 +7,8 @@ module.exports = [
     {text: '浏览器', link: '/front-end/browser/'},
     {text: 'JavaScript', link: '/front-end/JavaScript/'},
     {text: 'CSS', link: '/front-end/CSS/'},
-    {text: 'Vue', link: '/front-end/Vue/'}
+    {text: 'Vue', link: '/front-end/Vue/'},
+    {text: '《妈妈，我学不动了》', link: '/front-end/Mom-I-Cant-Learn-Anymore/'}
   ]}, 
   {text: '系统设计', items: [
     {text: '《为什么这么设计》', link: '/system-design/why-is-the-design/'}

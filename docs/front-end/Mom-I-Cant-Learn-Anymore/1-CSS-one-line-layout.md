@@ -299,7 +299,7 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
 
 [MDN, clamp() 详解](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 
-## 10. 完美实现比例
+### 10. 完美实现比例
 `aspect-ratio: <width> / <height>`
 
 在展现 CMS 或其他设计内容时，我们会期望图片、video、卡片能够按照固定的比例进行布局。而最新的 `aspect-ratio` 就能优雅的实现该功能(使用 chrome 84+)

@@ -67,8 +67,60 @@ report.tool 目前是直接和构建工具的作者进行沟通。
 1. code splitting。导出公共的依赖来避免重复打包
 code splitting 在构建现代高性能 JavaScript 应用非常重要，其可以避免多余的下载。在高维度来讲，code splitting 指的是将代码分割成更小的 bundles，这些 bundles 可以被单独加载。
 
-对于该特性 report.tools 提供了 7 种相关的 test case。
+对于该特性 report.tools 提供了 7 种相关的 test case。我们下面一一介绍：
+1. Between New Worker Type: can entry bundles be created for other contexts ?
 
+在项目中，我们有很多不同的场景需要给不同的 Javascript context 分别打包一些代码。 web workers 可能是最常见的情况，该功能性同样对 service workder , module workers 和 worklets 适用。因为目前很多构建工具专门对 web workers 进行了特殊处理，因此需要对新的 worker 变种进行适配。
+
+
+那么是如何设计测试用例的？
+该测试用例检查是否能够对新的或自定义的 context 类型进行代码分割
+```javascript
+// index.js
+import workerURL from 'get-worker-url-somehow';
+import { logCaps } from './utils.js';
+
+new InterestingNewWorkerType(workerURL);
+logCaps('This is index');
+
+// worker.js
+import { logCaps } from './utils.js';
+logCaps('This is worker');
+
+// utils.js
+export function logCaps(msg) {
+  console.log(msg.toUpperCase());
+}
+```
+测试用例期望将上面的 modules 能够打包成 2-3 个文件。一个用来存放主线程代码，一个存放 worker thread 代码，更加理想的 utils 中的 logCaps(被另外两个共享的)能够单独打包成一个 shared bundle。
+
+结论是：
+![](./images/2-4.png)
+
+2. 是否支持通过 dynamic import 进行分割代码
+在 code splitting 当中，一个 "split point" 指的是异步的模块边界，其允许依赖能够从父模块中分割出来，进行单独打包和加载。建立 split point 让 JavaScript 按需加载应用不同的部分成为可能（这在首屏加载非常有用）。
+
+最常见的实现 split point 的语法就是 dynamic import。
+
+测试用例如下：
+```javascript
+// index.js
+(async function() {
+  const {logCaps} = await import('./utils.js');
+  logCaps('This is index');
+})();
+
+// utils.js
+export function logCaps(msg) {
+  console.log(msg.toUpperCase());
+}
+
+```
+期望结果是产生两个脚本文件，一个是 `index` 模块，一个是 `utils` 模块。并且可以在 utils 模块被加载前执行 index 模块。
+
+![](./images/2-5.png)
+
+3. Multiple Entry Points Per Page
 ------
 > 遵循 MIT 协议，转载请联系作者。更多文章请关注公众号（点击下方链接）或者 Star GitHub repo.
 

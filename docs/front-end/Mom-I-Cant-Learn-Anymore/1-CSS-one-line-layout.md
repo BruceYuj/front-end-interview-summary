@@ -28,7 +28,7 @@ autoPrev: README
     place-items: center;
   }
 ```
-![](./images/1-1.gif)
+![](./images/1-1-1.gif)
 
 [MDN, place-items 属性详解](https://developer.mozilla.org/en-US/docs/Web/CSS/place-items)
 
@@ -61,10 +61,10 @@ autoPrev: README
     margin: 5px;
   }
 ```
-![](./images/2-1.gif)
+![](./images/1-2-1.gif)
 
 当我们设置 `flex: 1 1 150px;` 时候：
-![](./images/2-2.gif)
+![](./images/1-2-2.gif)
 
 [codepen 地址](https://codepen.io/una/pen/WNQdBza)
 
@@ -92,7 +92,7 @@ autoPrev: README
     grid-template-columns: minmax(150px, 25%) 1fr;
   }
 ```
-![](./images/3-1.gif)
+![](./images/1-3-1.gif)
 
 [codepen 地址](https://codepen.io/una/pen/gOaNeWL)
 
@@ -115,7 +115,7 @@ autoPrev: README
     grid-template-rows: auto 1fr auto;
   }
 ```
-![](./images/4-1.gif)
+![](./images/1-4-1.gif)
 
 [codepen 地址](https://codepen.io/una/pen/bGVXPWB)
 
@@ -161,7 +161,7 @@ autoPrev: README
     grid-column: 1 / 4;
   }
 ```
-![](./images/5-1.gif)
+![](./images/1-5-1.gif)
 
 [codepen 地址](https://codepen.io/una/pen/mdVbdBy)
 
@@ -169,7 +169,7 @@ autoPrev: README
 ### 06. 有意思的叠块
 使用 `grid-template-columns` 和 `grid-column` 可以实现如下图所示的布局。进一步说明了 `repeat` 和 `fr` 的便捷性。
 
-![](./images/6-1.png)
+![](./images/1-6-1.png)
 
 [codepen 地址](https://codepen.io/una/pen/eYJOYjj)
 
@@ -200,10 +200,10 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
 3. 当满足一行放下 3 个box 时，第三个 box 自动到第一行
 4. 当满足一行放下 4 个 box 时，第四个 box 自动到第一行
 
-![](./images/7-1.gif)
+![](./images/1-7-1.gif)
 
 如果我们将 `auto-fit` 改为 `auto-fill`:
-![](./images/7-2.gif)
+![](./images/1-7-2.gif)
 
 ### 08. 卡片弹性自适应
 `justify-content: space-between`，结合 `grid` 和 `flex` 实现完美的卡片布局。
@@ -254,7 +254,7 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
   }
 ```
 
-![](./images/8-1.gif)
+![](./images/1-8-1.gif)
 
 无论是宽度或高度的收缩还是延展，都可以完美的展现 card 的布局。
 
@@ -295,7 +295,7 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
     }
   
 ```
-![](./images/9-1.gif)
+![](./images/1-9-1.gif)
 
 [MDN, clamp() 详解](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 
@@ -332,7 +332,7 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
     padding: 1rem;
   }
 ```
-![](./images/10-1.gif)
+![](./images/1-10-1.gif)
 
 [codepen 地址](https://codepen.io/una/pen/xxZKzaX)
 

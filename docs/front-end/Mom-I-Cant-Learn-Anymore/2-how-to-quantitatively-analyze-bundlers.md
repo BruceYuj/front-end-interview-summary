@@ -7,7 +7,7 @@ autoPrev: 1-CSS-one-line-layout
 > Mom, I Can't Learn Anymore(《妈妈，我学不动了！》) 是一系列关于计算机领域程序最新时事的文章(偏向于前端领域)，在该系列会从不同的角度讨论领域内的实践和进展。
 
 ## 前言
-> 注意，我期望你带着问题看全文，我们在定量分析构建工具时，该怎么设计定量的标准？
+> 注意，我期望你带着问题看全文，我们是如何定量分析构建工具？衍生的问题是，学习这类知识的核心是什么？
 
 周日在家看 web.dev 的 2020 三天 live，发现不少有意思的东西，其中有一项是关于 building tool 的，也就是我们常说的前端构建工具，当天的主播是 Jake Archibald（chrome team 成员，个人非常喜欢的技术专家）。
 
@@ -320,6 +320,10 @@ tooling.report 提供了 3 个测试用例：
 我期望你能够从这篇文章里面得到两层含义：
 1. 站在更高维度去思考各个构建工具的优缺点，以及它们各自的意义，而不是得到类似面向 Webpack 编程这类的称号。
 2. 站在更高维度去思考永远在变化的行业（比如前端），去抓住哪些不变的东西，而具体哪些才能称得上不变的东西，有空在另起一篇文章。
+
+
+- [tooling.report github](https://github.com/GoogleChromeLabs/tooling.report)
+- [tooling.report 官网](https://bundlers.tooling.report/)
 
 ------
 > 遵循 MIT 协议，转载请联系作者。更多文章请关注公众号（点击下方链接）或者 Star GitHub repo.

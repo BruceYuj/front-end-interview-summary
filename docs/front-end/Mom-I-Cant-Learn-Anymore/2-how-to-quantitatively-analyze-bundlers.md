@@ -12,13 +12,14 @@ autoPrev: 1-CSS-one-line-layout
 周日在家看 web.dev 的 2020 三天 live，发现不少有意思的东西，其中有一项是关于 building tool 的，也就是我们常说的前端构建工具，当天的主播是 Jake Archibald（chrome team 成员，个人非常喜欢的技术专家）。
 
 其实，刚开始了解到 **tooling.report** 来自于我非常喜欢的一位开源作者 Evan You（Vuejs 的作者）的推特：
+
 ![](./images/2-1.png)
 
-这篇简单的推文引起了我的兴趣，尽管业内存在各种分析前端构建工具的文章，但这些文章往往质量参差不齐，分析不够全面，偏向于定性分析，有些甚至加入了个人的主观臆想。
+这篇简单的推文引起了我的兴趣，尽管业内存在各种分析前端构建工具的文章，但这些文章往往质量参差不齐，大部分分析不够全面，偏向于定性分析，有些甚至加入了个人的主观臆想。
 
 因此，为什么不对各大主流的构建工具进行定量分析它们呢（利用类似于 benchmark 的测试）？
 
-这很明显是一个对普通开发者非常有意义的一个功能。到现在还缺乏相对应权威的东西是因为：
+这很明显是一个对普通开发者非常有用的需求，但到现在还缺乏相对应权威的东西可能是因为：
 1. 前端发展到现在，各大构建工具已经非常的复杂，业界之前有一句笑话，“现在是面向 webpack 配置编程”。同时精通所有的构建工具是需要很大的耐心和技术水平的，并且相应的 ROI 也不够明确，所以甚少有人做。
 2. 这类构建工具进化的非常快，目前的前端有种现象，“每 6 个月就会出现一批新的技术”，所以要保证这些构建工具的定量分析的时效性需要耗费很大的精力和团队协作。
 
@@ -49,9 +50,9 @@ autoPrev: 1-CSS-one-line-layout
 
 **那么该如何在一个地方评估和比较不同的构建工具呢？** 编写 test cases 不失为一个很好的方法。
 
-Jake 的团队讨论并设计了测试标准，他们更加关注于是否能够提供给用户更加 fast, responsive, smooth 的体验（甲方是老大）。值得注意的是，这些 test case 并没有考虑开发者的使用体验，目的是为了避免可能产生冲突的结果（因为有些目标本身就是矛盾的）。
+Jake 的团队讨论并设计了测试标准，他们更加关注于是否能够提供给用户更加 fast, responsive, smooth 的体验（甲方是老大）。值得注意的是，这些 test case 并没有过多考虑开发者的使用体验，目的是为了避免可能产生冲突的结果（因为有些目标本身就是矛盾的）。
 
-report.tool 在建立完 test list 之后，会编写构建脚本来检查每个构建工具是否能够满足测试标准。目前 report.tool 构建工具列表如下：
+tooling.report 在建立完 test list 之后，会编写构建脚本来检查每个构建工具是否能够满足测试标准。目前 tooling.report 构建工具列表如下：
 - webpack v4
 - rollup v2
 - Parcel v2
@@ -59,11 +60,11 @@ report.tool 在建立完 test list 之后，会编写构建脚本来检查每个
 
 
 **在编写完测试用例后，该如何确保测试用例使用构建工具的方式是正确的？又是如何确保尽量在比较的时候公平？**
-report.tool 目前是直接和构建工具的作者进行沟通来保证上述的问题，并且通过开源来集合社区的力量。
+tooling.report 目前是直接和构建工具的作者进行沟通来保证上述的问题，并且通过开源来集合社区的力量。
 
-**此时有同学可能会问，“对于只使用构建工具，而不会进行决策使用哪个的开发人员来讲，report.tools 是否仍然有意义？”**
+**此时有同学可能会问，“对于只使用构建工具，而不会进行决策使用哪个的开发人员来讲，tooling.reports 是否仍然有意义？”**
 
-我们知道，在很多团队中，有专门的人员来致力于基础设施的维护，而团队的其他人员只需要直接使用就好。但是在这里我需要强调的是 report.tools 对于这列开发者仍然是有意义的。因为对于每一项测试，report.tools 都会详细解释为什么这些测试是重要的，各个构建工具该是如何满足这些测试的，并且在 github 提供了这些测试的最佳配置方案。
+我们知道，在很多团队中，有专门的人员来致力于基础设施的维护，而团队的其他人员只需要直接使用就好。但是在这里我需要强调的是 tooling.reports 对于这列开发者仍然是有意义的。因为对于每一项测试，tooling.reports 都会详细解释为什么这些测试是重要的，各个构建工具该是如何满足这些测试的，并且在 github 提供了这些测试的最佳配置方案。
 
 **听到这里，大家是不是都已经兴奋了起来 ^<>^**
 
@@ -72,11 +73,11 @@ report.tool 目前是直接和构建工具的作者进行沟通来保证上述�
 ![](./images/2-3.png)
 
 
-**到这里，都是表层的东西。我不禁思考起来，构建工具的哪些特性对于开发者是值得关注的？换种说法，report.tools 究竟是怎么选择这些测试特性的？**
+**到这里，都是表层的东西。我不禁思考起来，构建工具的哪些特性对于开发者是值得关注的？换种说法，tooling.reports 究竟是怎么选择这些测试特性的？**
 
 
 
-目前 report.tools 主要测试的特性有 6 大种类：
+目前 tooling.reports 主要测试的特性有 6 大种类：
 1. code splitting。导出公共的依赖来避免重复打包
 2. Hashing。给长期缓存(long-term caching) 生成散列 URL
 3. Importing Modules。是否支持不同的模块格式导入
@@ -90,7 +91,7 @@ report.tool 目前是直接和构建工具的作者进行沟通来保证上述�
 
 code splitting 在构建现代高性能 JavaScript 应用非常重要，其可以避免多余的下载。从高维度来讲，code splitting 指的是将代码分割成更小的 bundles，然后这些 bundles 可以被分别单独加载。
 
-而对于 code splitting，在实际使用过程中又有很多不同的功能分支。在 report.tools 中总共提供了 7 种相关的 test case，下面一一介绍：
+而对于 code splitting，在实际使用过程中又有很多不同的功能分支。在 tooling.reports 中总共提供了 7 种相关的 test case，下面一一介绍：
 
 1. **Between New Worker Type: can entry bundles be created for other contexts ?（是否能对不同的 JavaScript context 的共用部分单独打包）**
 
@@ -104,11 +105,13 @@ import { logCaps } from './utils.js';
 
 new InterestingNewWorkerType(workerURL);
 logCaps('This is index');
-
+```
+```javascript
 // worker.js
 import { logCaps } from './utils.js';
 logCaps('This is worker');
-
+```
+```javascript
 // utils.js
 export function logCaps(msg) {
   console.log(msg.toUpperCase());
@@ -122,11 +125,13 @@ export function logCaps(msg) {
 
 
 2. **between workers: can bundles be shared between the main thread and workers?(是否能对主线程和 web workers 公用的部分单独打包)**
+
 该测试用例是对测试 1 的特异化，用来查看各大构建工具是否有对 web workers 有支持。
 
 ![](./images/2-7.png)
 
 3. **是否支持通过 dynamic import 进行分割代码**
+
 首先，我们得普及专业名词 - `split point` 的定义。
 在 code splitting 当中，一个 "split point" 指的是异步的模块边界，其允许依赖能够从父模块中被分割出来，进行单独地打包和加载。
 
@@ -141,7 +146,8 @@ export function logCaps(msg) {
   const {logCaps} = await import('./utils.js');
   logCaps('This is index');
 })();
-
+```
+```javascript
 // utils.js
 export function logCaps(msg) {
   console.log(msg.toUpperCase());
@@ -155,7 +161,7 @@ export function logCaps(msg) {
 
 4. **Multiple Entry Points Per Page: Can multiple entry points be used without duplicating modules?（当一个页面有多个入口时，多个入口是否会重复生成共用的 bundles）**
 
-通常来讲，一个页面只有一个入口，但有些时候会有一个页面多个入口的需求。比如，你期望在主入口旁边有个辅助入口，该入口用来分析功能。
+通常来讲，一个页面只有一个入口，但有些时候会有一个页面多个入口的需求。比如，你期望在主入口旁边有个辅助入口，该入口用来分析。
 根据构建工具的配置，多个入口依赖的公用模块可以被提取出来，成为多个页面公用的包。另外有时候也会出现另外一种情况，该公用模块只有很少的页面使用，以至于没有太多的理由将其抽取到公用包，而构建工具会将其分别内联到每个入口 bundle 里面。
 
 但无论是**提取**出来还是**内联**，一个模块都不能被多次实例化。因为 ECMAScript module 和 CommonJS 都指定了一个 module 在每个 JavaScript 上下文只能被实例化一次。这种保证允许将模块的状态共享，很多库都是依赖这种假设来实现重要的跨领域问题(cross-cutting concerns)，比如 memorization， queues 和 plugin 注册。如果打破这个假设，会导致错误和低效。
@@ -266,7 +272,7 @@ tooling.report 提供了 3 个测试用例：
 
 很明显，这种功能是非常必要的。首先在 Node 12 之前，Nodejs 只支持 CommonJS；如果你的生产环境是现代浏览器，那么 ES module 肯定是最适合的；但是如果浏览器是老版本的，那么就需要相应的兼容。
 
-另外还有一些情况，我们需要定制特殊的 module format。比如 web workers 的模块目前只能在 chrome 中使用，还没有浏览器支持 ervice worker 的模块化使用。
+另外还有一些情况，我们需要定制特殊的 module format。比如 web workers 的模块目前只能在 chrome 中使用，还没有浏览器支持 service worker 的模块化使用。
 
 ![](./images/2-12.png)
 
@@ -282,7 +288,7 @@ tooling.report 提供了 3 个测试用例：
 
 **如果我们不能够很好地定义这些资源的关系，那么带来的问题是 - 单独处理这类类型的资源会很困难。比如我们对 URL 进行哈希处理时，各个资源的引用可能会产生不同步。并且资源的上下文处理也非常的困难甚至不可能。**
 
-流行的决绝方案是将应用表示成资源图(graph of resources)，这种方式非常类似于 module graph 的概念。资源图可以保存每个资源的信息，包括它所依赖的资源。比如 CSS 样式表依赖于其他通过 `@import` 引用的样式表；`@font-face` 引入的字体。更加有用的是，这些信息可以用来修改甚至内联资源的 URLs，或者应用 transformations（比如 namespacing CSS).
+流行的解决方案是将应用表示成资源图(graph of resources)，这种方式非常类似于 module graph 的概念。资源图可以保存每个资源的信息，包括它所依赖的资源。比如 CSS 样式表依赖于其他通过 `@import` 引用的样式表；`@font-face` 引入的字体。更加有用的是，这些信息可以用来修改甚至内联资源的 URLs，或者应用 transformations（比如 namespacing CSS).
 
 目前来讲，JavaScript 本身不支持在 module graph 中包含非 JS 资源，因此我们需要构建工具进行处理（在这里我们没有考虑最新的 TC39 提案 - **Import Attribute proposal**，支持安全引入 Non-JavaScript 资源）。
 
@@ -313,11 +319,11 @@ tooling.report 提供了 3 个测试用例：
 ## 总结
 到这里，我们已经定量分析了 4 种主流的构建工具。**值得注意的是，这些测试每天都在完善着，也期望着看文章的你能够到 github 上贡献一份力量。**
 
-不知道你有没有仔细思考过另外一个问题，“除了帮助我们做 tradeoffs，定量分析不同的构建工具能够带给我们什么？”
+下面我们仔细思考另外一个问题，“除了帮助我们做 tradeoffs，定量分析不同的构建工具能够带给我们什么？”
 
 其实这里面包含着所有学习的一个核心：**“当你如果只在一个东西里面，你永远无法完全理解这个东西”**。这句话可能有点哲学，用另外一个不太恰当的比喻来看，**“如果你是一只井底的蛙，那么你对这个世界的理解就只有井口那么大，你所能够理解的东西都在这个井里面”**。
 
-我期望你能够从这篇文章里面得到两层含义：
+我更加期望你能够从这篇文章里面得到两层含义：
 1. 站在更高维度去思考各个构建工具的优缺点，以及它们各自的意义，而不是得到类似面向 Webpack 编程这类的称号。
 2. 站在更高维度去思考永远在变化的行业（比如前端），去抓住哪些不变的东西，而具体哪些才能称得上不变的东西，有空在另起一篇文章。
 

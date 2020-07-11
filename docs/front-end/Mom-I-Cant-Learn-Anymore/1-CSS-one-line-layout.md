@@ -11,7 +11,7 @@ autoPrev: README
 
 > **注意：下面大部分代码已经由各大主流最新浏览器实现，切记不要使用在 production 当中**
 
-> **如果是公众号的读者，由于外链原因，可以点击阅读原文，github page 里面有更加详细的 demo**
+> **注意：本文所有的代码来自于 Una Krats。网络较好的，可以看 Una Kravets 的为 web.dev 专门写的网址，里面有所有的demo - [1linelayouts](http://1linelayouts.glitch.me/)**
 ## 正文
 
 ### 01. 超级居中
@@ -32,7 +32,7 @@ autoPrev: README
 
 [MDN, place-items 属性详解](https://developer.mozilla.org/en-US/docs/Web/CSS/place-items)
 
-[codepen 地址](https://codepen.io/una/pen/YzyYbBx)
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/YzyYbBx)
 
 ### 02. 可解构的自适应布局(The Deconstructed Pancake)
 `flex: 0 1 <baseWidth>`
@@ -66,7 +66,7 @@ autoPrev: README
 当我们设置 `flex: 1 1 150px;` 时候：
 ![](./images/1-2-2.gif)
 
-[codepen 地址](https://codepen.io/una/pen/WNQdBza)
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/WNQdBza)
 
 
 
@@ -94,7 +94,7 @@ autoPrev: README
 ```
 ![](./images/1-3-1.gif)
 
-[codepen 地址](https://codepen.io/una/pen/gOaNeWL)
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/gOaNeWL)
 
 ### 04. 固定的 header 和 footer
 `grid-template-rows: auto 1fr auto`
@@ -117,7 +117,7 @@ autoPrev: README
 ```
 ![](./images/1-4-1.gif)
 
-[codepen 地址](https://codepen.io/una/pen/bGVXPWB)
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/bGVXPWB)
 
 ### 05. 经典的圣杯布局(classical holy Grail layout)
 `grid-template: auto 1fr auto / auto 1fr auto`
@@ -163,7 +163,7 @@ autoPrev: README
 ```
 ![](./images/1-5-1.gif)
 
-[codepen 地址](https://codepen.io/una/pen/mdVbdBy)
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/mdVbdBy)
 
 
 ### 06. 有意思的叠块
@@ -171,7 +171,7 @@ autoPrev: README
 
 ![](./images/1-6-1.png)
 
-[codepen 地址](https://codepen.io/una/pen/eYJOYjj)
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/eYJOYjj)
 
 ### 07. RAM 技巧
 `grid-template-columns: repeat(auto-fit, minmax(<base>, 1fr))`
@@ -205,6 +205,7 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
 如果我们将 `auto-fit` 改为 `auto-fill`:
 ![](./images/1-7-2.gif)
 
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/oNbvNQv)
 ### 08. 卡片弹性自适应
 `justify-content: space-between`，结合 `grid` 和 `flex` 实现完美的卡片布局。
 
@@ -258,7 +259,7 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
 
 无论是宽度或高度的收缩还是延展，都可以完美的展现 card 的布局。
 
-[codepen 地址](https://codepen.io/una/pen/ExPYomq)
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/ExPYomq)
 
 
 ### 09. 使用 clamp 实现 fluid typography
@@ -299,6 +300,7 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
 
 [MDN, clamp() 详解](https://developer.mozilla.org/en-US/docs/Web/CSS/clamp)
 
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/QWyLxaL)
 ### 10. 完美实现比例
 `aspect-ratio: <width> / <height>`
 
@@ -334,7 +336,7 @@ Una Kravets 称之为 repeat, auto, minmax 技巧。这在弹性布局 **图片/
 ```
 ![](./images/1-10-1.gif)
 
-[codepen 地址](https://codepen.io/una/pen/xxZKzaX)
+[Una Krats 的 codepen 地址](https://codepen.io/una/pen/xxZKzaX)
 
 
 ------

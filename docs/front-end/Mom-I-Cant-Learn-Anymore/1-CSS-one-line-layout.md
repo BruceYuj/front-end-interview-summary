@@ -12,6 +12,8 @@ autoPrev: README
 > **注意：下面大部分代码已经由各大主流最新浏览器实现，切记不要使用在 production 当中**
 
 > **注意：本文所有的代码来自于 Una Krats。网络较好的，可以看 Una Kravets 的为 web.dev 专门写的网址，里面有所有的demo - [1linelayouts](http://1linelayouts.glitch.me/)**
+
+> **注意：Una Krats 写了一篇博文专门详细讲解了 1linelayouts, 地址如下: [Ten modern layouts in one line of CSS](https://web.dev/one-line-layouts/)**
 ## 正文
 
 ### 01. 超级居中

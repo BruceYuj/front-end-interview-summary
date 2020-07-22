@@ -83,7 +83,7 @@ function bsearch1(l, r) {
   while(l < r) {
     let mid = l + Math.ceil((r-l)/2);
     if(check(mid)) l = mid; 
-    else l = mid-1;
+    else r = mid-1;
   }
   return l;
 }

@@ -11,6 +11,7 @@ module.exports = [
     {text: '《妈妈，我学不动了》', link: '/front-end/Mom-I-Cant-Learn-Anymore/'},
     {text: '《前端思考录》', link: '/front-end/front-end-thinking/'}
   ]}, 
+  {text: '算法', link: '/algorithm/'},
   {text: '系统设计', items: [
     {text: '《为什么这么设计》', link: '/system-design/why-is-the-design/'}
   ]},

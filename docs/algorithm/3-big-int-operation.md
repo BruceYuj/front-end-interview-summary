@@ -30,3 +30,53 @@ $a_i...a_2a_1 + b_j...b_2b_1$，则每一位则是: $a_i+b_i+t$
 ```javascript
 
 ```
+
+## 高精度除法
+同样的是一个大整数 除以一个小整数
+
+```javascript
+var readline = require('readline');
+
+var f1 = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout
+})
+
+var m = 0;
+var a = null;
+var b = 0;
+f1.on('line', function(data) {
+    
+    if(m === 0) {
+        a = data.trim().split('').map(elem => parseInt(elem)).reverse();
+        m++;
+    } else {
+        b = parseInt(data.trim());
+        let ans = div(a, b);
+        
+        console.log(ans[0].reverse().join(''));
+        console.log(ans[1]);
+        m = 0;
+    }
+})
+
+
+function div(a, b) {
+    let t = 0;
+    let res = [];
+    
+    for(let i = a.length-1; i >= 0; i--) {
+        t = t*10+a[i];
+        
+        res.push(parseInt(t/b));
+        
+        t = t % b;
+    }
+    
+    res.reverse();
+    while(res.length > 1 && res[res.length-1] === 0) res.pop();
+    
+    return [res, t];
+      
+}
+```

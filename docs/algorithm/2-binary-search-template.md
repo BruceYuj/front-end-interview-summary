@@ -33,7 +33,7 @@ function check() {}; // 判断是否满足某种特性
 function biSearch1(l, r) {
 
   while(l < r) {
-    let mid = l + Math.floor((r-l)/2);
+    let mid = l + Math.floor((r-l)/2); // (l+r)/2
     if(check(mid)) r = mid;
     else l = mid+1;
   }
@@ -44,7 +44,7 @@ function biSearch1(l, r) {
 function biSearch1(l, r) {
 
   while(l < r) {
-    let mid = l + Math.ceil((r-l)/2);
+    let mid = l + Math.ceil((r-l)/2); // (l+r+1) / 2
     if(check(mid)) l = mid;
     else r = mid-1;
   }

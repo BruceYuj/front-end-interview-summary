@@ -1,6 +1,6 @@
 ---
 title: 算法面试套路之 - 大整数运算
-autoPrev: 2-binary-search-template
+autoPrev: 4-binary-search-template-1
 ---
 
 ## 前言

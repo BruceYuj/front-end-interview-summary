@@ -222,8 +222,14 @@ def check(x):
 
 
 ### 类型四 - 求最大平均值 / 最小平均值
+第四类可以通过**二分法**可以解决的有趣问题就是 **最大平均值/最小平均值**。举个抽象的例子，假设存在一个数组 $a = [a_0, a_1, ... , a_{n-1}]$，我们期望找到一个连续区间 $[l, r]$，该区间的大小至少是 $D$，需要求所有可能区间的最大平均值。这也是 [luogu: 1404. 求平均值(poj2018)](https://www.luogu.com.cn/problem/P1404) 的题意。
+
+
+
+
+
 1. [acwing: 02. 最佳牛围栏](https://www.acwing.com/problem/content/description/104/)
-2. [luogu: 1404. 求平均值(poj2018)](https://www.luogu.com.cn/problem/P1404)
+2. 
 3. [acwing: 2430. 送礼物](https://www.acwing.com/problem/content/description/2432/)
   
 笔试题：https://www.acwing.com/community/content/537/

@@ -129,7 +129,7 @@ def check(t):
 
 由于到目前为止，**dfs** 我们还没有讲过，所以这里就不详解介绍了，后续课程再说。
 
-**理解了本类题型，下面 8 道题目就很简单了，作为课后习题给大家。**
+**理解了本类题型，下面 16 道题目就很简单了，作为课后习题留给大家。**
 
 1. [leetcode: 1482. 制作 m 束花所需的最少天数](https://leetcode-cn.com/problems/minimum-number-of-days-to-make-m-bouquets/)
 2. [leetcode: 1292. 元素和小于等于阈值的正方形的最大边长](https://leetcode-cn.com/problems/maximum-side-length-of-a-square-with-sum-less-than-or-equal-to-threshold/)
@@ -138,8 +138,10 @@ def check(t):
 5. [acwing(头条 2019 笔试):680. 剪绳子](https://www.acwing.com/problem/content/682/)
 6. [acwing(第八届蓝桥杯): 1227. 分巧克力](https://www.acwing.com/problem/content/description/1229/)
 7. [acwing(头条 2019 笔试): 730. 机器人跳跃问题](https://www.acwing.com/problem/content/description/732/)
-8.  [acwing: 1028. 复制书稿](https://www.acwing.com/problem/content/description/1030/)
-   
+8. [acwing: 1028. 复制书稿](https://www.acwing.com/problem/content/description/1030/)
+9. [codeforces edu 8 道题目](https://codeforces.com/edu/course/2/lesson/6/2/practice)   
+
+
 ### 类型三： $min(max()) / max(min())$
 另一类可以被单独拿出来的问题被称为求 $min(max())/ max(min())$ 。这类问题的出现频率很高且可以通过二分法来解决。
 
@@ -149,9 +151,9 @@ def check(t):
 （图 5-4）
 
 本题虽然标为 hard 级别，但仍然属于入门的难度。根据题意，需要**设计一个算法，使 m 个子数组各自和的最大值最小**，转换为更简单的公式就是：
-$min(max(sum([l_i, r_i])))$，这里假设最终结果为 `t`，那么一定存在一种切割方式使得 $max(sum([l_i, r_i])) \leq t$。切割方式可以很容易通过贪心来获取（具体后面再讲）。
+$min(max(sum([l_i, r_i])))$，这里假设最终结果为 `t`，那么一定存在一种切割方式使得 $max(sum([l_i, r_i])) = t$，该切割方式可以很容易通过贪心来获取（具体后面再讲）。
 
-这里，我们会发现，如果 $max(sum([l_i, r_i])) \leq t$, 那么 $t+1$ 仍然满足这个不等式，$t-1$ 不满足不等式。因此，$t$ 的**值域范围**是存在单调性的。
+根据题意，一定存在切割方式使得满足 $max(sum([l_i, r_i])) = (t+x), x > 0$，而不存在切割范式使得 $max(sum([l_i, r_i])) = t-x$ （这里 $x$ 为正数且合法），因为 $t$ 已经是可切割中方式的最小了。所以，$t$ 的**值域范围**是存在单调性的。
 
 $$
 f(x) =
@@ -177,14 +179,49 @@ def check(x: int) -> bool:
     return cnt <= m
 ```
 
+下面我们看一道 **NOIP 2015 提高组** 的一道题 - [acwing: 519. 跳石头](https://www.acwing.com/problem/content/521/)。
+![](./images/5-5.png)
+（图 5-5）
+
+题目要求给出 **最多移走 M 块石头之后，最短跳跃距离的最大值**，转换成公式就是 $max(min(d_1, d_2, ..., d_i))$。
+
+假设该值为 **$t$**，也就是存在一种或多种移动方法使得 $min(d_1, d_2, ..., d_i) = t$。
+
+那么一定不存在移动方法使得 $min(d_1, d_2, ..., d_i) = t+1$，一定存在某种移动方式使得 $min(d_1, ..., d_i) = t-x, x > 0$。
+
+同样根据是否存在移动方法将 $t$ 的**值域范围**分为两个区间。
+$$
+f(x) =
+\begin{cases}
+1, x <= t, 存在移动方法 \\
+0, x > t, 不存在移动方法
+\end{cases}
+$$
+
+很明显，这是求**左区间的右端点**，用**模板二**的代码即可。稍微变化的仍然是 $check()$ 方法，贪心即可。
+```python
+def check(x):
+    
+    cnt = 0 # 统计需要移动的石头数量
+    last = 0 # 上一个未移动的石头位置
+    for i in range(1, n+1):
+        if d[i] - last < x: # 如果当前石头到上一个未移动石头距离不足 x，则当前石头需要被移走
+            cnt += 1
+        else:
+            last = d[i]
+    
+    return cnt <= m
+```
+
+是不是很简单就解决了看似 hard 级别的题目，如果题目想出的更加复杂一点，可以将**二分和图论**结合，比如课后习题中的一道，这里就不讲了（如果不会，可以在答疑群里面提出）
+
+**课后习题（6 道）**
+1. [leetcode plus: 774. minimize-max-distance-to-gas-station](https://leetcode-cn.com/problems/minimize-max-distance-to-gas-station/)
+2. [acwing: 2436. 串分割](https://www.acwing.com/problem/content/description/2438/)
+3. [codeforces 4 道经典题目](https://codeforces.com/edu/course/2/lesson/6/3/practice)
 
 
-
-2. [acwing: 519. 跳石头](https://www.acwing.com/problem/content/521/)
-3. [leetcode plus: 774. minimize-max-distance-to-gas-station](https://leetcode-cn.com/problems/minimize-max-distance-to-gas-station/)
-4. [acwing: 2436. 串分割](https://www.acwing.com/problem/content/description/2438/)
-
-### 3. 求最大平均值 / 最小平均值
+### 类型四 - 求最大平均值 / 最小平均值
 1. [acwing: 02. 最佳牛围栏](https://www.acwing.com/problem/content/description/104/)
 2. [luogu: 1404. 求平均值(poj2018)](https://www.luogu.com.cn/problem/P1404)
 3. [acwing: 2430. 送礼物](https://www.acwing.com/problem/content/description/2432/)

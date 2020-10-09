@@ -121,7 +121,7 @@ if matrix[l//n][l%n] == target: return True
 else: return False
 ```
 
-2. [leetcode: 例题 3 - 153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array)
+1. [leetcode: 153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array)
 > 假设按照升序排序的数组在预先未知的某个点上进行了旋转。( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。请找出其中最小的元素。你可以假设数组中不存在重复元素。
 
 ![](./images/4-5.jpg)
@@ -153,6 +153,7 @@ return nums[l]
 **除了完成上述题目，还有一些其他题目大家可以尝试：**
 1. [leetcode: 162. 寻找峰值](https://leetcode-cn.com/problems/find-peak-element/)
 2. [leetcode: 275. H 指数 II](https://leetcode-cn.com/problems/h-index-ii/)
+3. [codeforces edu 4 道题目](https://codeforces.com/edu/course/2/lesson/6/1/practice)
 
 ### 实数二分模板
 ```

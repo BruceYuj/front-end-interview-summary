@@ -18,7 +18,9 @@
     "@vuepress/plugin-pwa": "^1.5.1",
     "nodemon": "^2.0.4",
     "vuepress": "1.5.2",
-    "vuepress-plugin-auto-sidebar": "^1.4.1",
+    "vuepress-plugin-auto-sidebar": "^1.4.1"
+  },
+  "dependencies": {
     "vuepress-plugin-mathjax": "^1.2.8"
   }
 }

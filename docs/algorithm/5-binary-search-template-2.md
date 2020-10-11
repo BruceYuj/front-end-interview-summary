@@ -369,16 +369,30 @@ LCM = A // gcd(A,B) * B
 4. [codeforces 3 道经典题目](https://codeforces.com/edu/course/2/lesson/6/5/practice)
 
 
-## 其他二分变形的题目
+### 其他涉及题目
+在算法题目中结合多种技巧解决一道题目是很常见的事，下面就给大家列举一些**二分法**结合其他算法的题目，这些题目就不讲解了，有问题可以在答疑群里面提出来。
 
+**数学+二分**：
 1. [leetcode: 483. 最小好进制](https://leetcode-cn.com/problems/smallest-good-base/) 
-2.  [628. 美丽的数（google kickstart 2016 round E problem B）](https://www.acwing.com/problem/content/description/630/)
-3. [acwing: 120. 防线](https://www.acwing.com/problem/content/description/122/)
+2. [628. 美丽的数（google kickstart 2016 round E problem B）](https://www.acwing.com/problem/content/description/630/)
 
-**二分+dp：**
-4. [acwing: 472. 跳房子](https://www.acwing.com/problem/content/description/474/)
+**二分+dp：** [acwing: 472. 跳房子](https://www.acwing.com/problem/content/description/474/)
 
-**二分+差分**
-7. [acwing: 503. 借教室](https://www.acwing.com/problem/content/description/505/)
+**二分+差分：**[acwing: 503. 借教室](https://www.acwing.com/problem/content/description/505/)
 
-8. LIS 问题可以通过： 贪心+二分 优化 动态规划的解法，并引申出一系列题目，后面再讲
+**贪心+二分：**  LIS 问题（动态规划专题讲解）
+
+## 总结
+二分法专题到这里就基本结束了，本专题总共涉及到 **60 道** 题目，以 LeetCode 难度划分基本属于 **hard** 和 **medium** 偏上的题目，类似的题目还有很多，但是基本都大同小异。掌握了本篇的这几种主要题型，相信大家以后再面对二分类题目时就可以信手拈来了。
+
+最后我们再回顾下我们的内容：
+通常我们将二分法分为整数域上的二分和实数域上的二分。
+- 整数二分的细节在于**终止边界、左右区间取舍时的开闭情况**，来避免**漏掉答案或者造成死循环**。**模板一** 和 **模板二**
+- 实数二分的细节在于**精度问题**
+
+通用 5 种二分类型题目为：
+1. 明显二分问题（题面上能一下看出二分的）
+2. 对结果进行二分（值域上二分）
+3. min(max()) 和 max(min())
+4. 最大/最小平均值(max/min average)
+5. 特殊第 K 小问题

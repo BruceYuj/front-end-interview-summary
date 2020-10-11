@@ -17,6 +17,7 @@ autoPrev: 4-binary-search-template-1
 3. 最大/最小平均值(max/min average)
 4. 特殊第 K 小问题
 
+> 注意：**搭配 B 站视频更香奥！**
 ## 正文
 
 ### 类型二：对结果进行二分
@@ -396,3 +397,6 @@ LCM = A // gcd(A,B) * B
 3. min(max()) 和 max(min())
 4. 最大/最小平均值(max/min average)
 5. 特殊第 K 小问题
+
+![](./images/wechat.png)
+![](./images/bilibili.png)

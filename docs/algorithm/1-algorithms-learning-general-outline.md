@@ -163,3 +163,6 @@ function bsearch1(l, r) {// 查找左区间的右端点
    - 单调队列优化DP
    - 斜率优化DP
 7. 常见贪心
+
+![](./images/wechat.png)
+![](./images/bilibili.png)

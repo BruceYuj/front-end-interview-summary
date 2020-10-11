@@ -1,5 +1,5 @@
 ---
-title: 算法模板 - 二分法（一）
+title: 二分法专题（一）
 autoPrev: 3-quick-sort-and-quick-select
 ---
 

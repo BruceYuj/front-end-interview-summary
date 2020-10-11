@@ -1,5 +1,5 @@
 ---
-title: 算法模板 - 二分法（二）
+title: 二分法专题（二）
 autoPrev: 4-binary-search-template-1
 ---
 

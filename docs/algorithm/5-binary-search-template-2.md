@@ -34,12 +34,12 @@ $$
 
 我们来看具体的例子： [leetcode: 1011. 在 D 天内送达包裹的能力](https://leetcode-cn.com/problems/capacity-to-ship-packages-within-d-days/)
 
-![](./images/5-1.png)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-1.png)
 
 (图 5.1)
 
 题目需要求 **D 天内能够传送所有包裹的最低运载能力**，假设这个 **最低运载能力** 为 `x`。那么很显然 `x+1` 也能够在 D 天内运完所有包裹。因此本题的 `check 特性` 就是 **能在 D 天内运完所有包裹**。我们可以根据该特性将值域分为两个区间：
-![](./images/5-2.jpg)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-2.jpg)
 
 (图 5.2)
 
@@ -79,7 +79,7 @@ def check(x):
 **在值域上二分的这类题目，其代码区别主要在 check 方法，不同的题目会结合其他算法来进行考察。**
 比如 [leetcode: 778. 水位上升的泳池中游泳](https://leetcode-cn.com/problems/swim-in-rising-water/)
 
-![](./images/5-3.png)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-3.png)
 
 (图 5-3)
 
@@ -154,7 +154,7 @@ def check(t):
 
 我们先通过一道简单的题目来看看为什么被称为 $min(max()) / max(min())$ -  [leetcode: 410. 分割数组的最大值](https://leetcode-cn.com/problems/split-array-largest-sum/)。
 
-![图 5-4](./images/5-4.png)   
+![图 5-4](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-4.png)   
 
 （图 5-4）
 
@@ -193,7 +193,7 @@ def check(x: int) -> bool:
 
 下面我们看一道 **NOIP 2015 提高组** 的一道题 - [acwing: 519. 跳石头](https://www.acwing.com/problem/content/521/)。
 
-![](./images/5-5.png)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-5.png)
 
 （图 5-5）
 
@@ -239,7 +239,7 @@ def check(x):
 ### 类型四 - 求最大平均值 / 最小平均值
 第四类可以通过**二分法**可以解决的有趣问题就是 **最大平均值/最小平均值**。举个抽象的例子，假设存在一个数组 $a = [a_0, a_1, ... , a_{n-1}]$，我们期望找到一个连续区间 $[l, r]$，该区间的大小至少是 $m$，需要求所有可能区间的最大平均值。这也是 [luogu: 1404. 求平均值(poj2018)](https://www.luogu.com.cn/problem/P1404) 的题意。
 
-![](./images/5-6.png)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-6.png)
 
 (图 5-6)
 
@@ -268,7 +268,7 @@ $$
 那么该**如何判断某个值 $x$ 是否存在方案呢？** - 也就是 $check()$ 方法该如何实现？
 
 对于所有 **最大平均值/最小平均值** 的思路是类似的（大家多手推几遍就有感觉了，算是通用思路），需要进行如下图 5-7 所示的变形即可：
-![](./images/5-7.jpg)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-7.jpg)
 
 （图 5-7）
 
@@ -308,7 +308,7 @@ def check(x):
 
 我们先来看 [leetcode: 668. 乘法表中第k小的数](https://leetcode-cn.com/problems/kth-smallest-number-in-multiplication-table/)：
 
-![](./images/5-8.png)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-8.png)
 
 （图 5-8）
 
@@ -348,7 +348,7 @@ def check(x):
 
 下面我们来看一道稍微变化的题目，[leetcode: 878. 第 N 个神奇数字](https://leetcode-cn.com/problems/nth-magical-number/)，虽然是 **hard** 级别，但是难度仍然不高：
 
-![](./images/5-9.png)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/5-9.png)
 
 （图 5-9）
 
@@ -415,5 +415,5 @@ LCM = A // gcd(A,B) * B
 4. 最大/最小平均值(max/min average)
 5. 特殊第 K 小问题
 
-![](./images/wechat.png)
-![](./images/bilibili.png)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/wechat.png)
+![](https://gitee.com/HopeSmile/image-repo/raw/master/front-end-interview-summary/algorithm/bilibili.png)

@@ -33,7 +33,7 @@ autoPrev: 3-quick-sort-and-quick-select
 
 > *更多细节可以在 B 站搜索 《百学原理》 up主，面试向算法系列 - 1.4 二分法的经典应用*
 
-![](./images/4-1.png)
+![](https://gitee.com/HopeSmile/image-repo/blob/master/front-end-interview-summary/algorithm/4-1.png)
 （图 4-1）
 
 ### 整数二分模板
@@ -81,7 +81,7 @@ def check(x):
     return x >= target
 ```
 也就是我们通过上述 `check()` 方法将数组划分为两个区间，**开始位置**就是右区间的左端点(也就是模板一)，如下图 4-2。
-![](./images/4-2.jpg)
+![](https://gitee.com/HopeSmile/image-repo/blob/master/front-end-interview-summary/algorithm/4-2.jpg)
 （图 4-2）
 
 那么，我们是否可以用 **模板二** 求解开始位置呢？很显然也是可以的，只是会麻烦一些，如图 4-2 中的 4。我们可以通过 `x < target` 求得左区间的右端点，也就是最后一个 `< target` 的位置，假设为 `i`，那么 `i+1` 显然就是 `target` 的起始位置(这里不考虑不存在情况)。
@@ -101,13 +101,15 @@ def check(x):
 
 **为什么改变写法就有可能产生死循环呢？** 其实举个反例即可。   
 本身 **模板一就是为了获得右区间的左端点**，所以  `r = mid` 和 `l = mid+1`是肯定的，大家记住即可。那么如果模板一变成 `mid = (l+r+1)//2`，也就是在 `[i, i+1]` 时， `mid = i+1`. 可能会产生如下图所示的情况：
-![](./images/4-3.jpg)
+![](https://gitee.com/HopeSmile/image-repo/blob/master/front-end-interview-summary/algorithm/4-3.jpg)
+(图 4-3)
 
 模板二的证明和模板一类似。
 
 **下面我们来看下模板一和模板二是如何运用在基础题目里面的（以下所有题目在 B站 1.4.1 和 1.4.2 中都有详细讲解）**
 1. [leetcode: 74. 搜索二维矩阵](https://leetcode-cn.com/problems/search-a-2d-matrix/)
-![](./images/4-4.png)
+![](https://gitee.com/HopeSmile/image-repo/blob/master/front-end-interview-summary/algorithm/4-4.png)
+（图 4-4）
 
 题目问的是 - 是否存在目标值，所以套用模板一和模板二都可以。稍微有点变形的是题目给出的序列是二维的，因此我们需要通过简单的变形将二维转为一维。
 ```python
@@ -128,7 +130,9 @@ else: return False
 1. [leetcode: 153. 寻找旋转排序数组中的最小值](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array)
 > 假设按照升序排序的数组在预先未知的某个点上进行了旋转。( 例如，数组 [0,1,2,4,5,6,7] 可能变为 [4,5,6,7,0,1,2] )。请找出其中最小的元素。你可以假设数组中不存在重复元素。
 
-![](./images/4-5.jpg)
+![](https://gitee.com/HopeSmile/image-repo/blob/master/front-end-interview-summary/algorithm/4-5.jpg)
+（图 4-5）
+
 如上图所示，可以直接根据模板一构造出 `check()` 方法（代码就不给了）。
 
 **如果允许重复值呢？比如** [leetcode: 154. 寻找旋转排序数组中的最小值 II](https://leetcode-cn.com/problems/find-minimum-in-rotated-sorted-array-ii/)
@@ -191,5 +195,5 @@ binary_search(l , r): // 寻找结果
 
 剩下的 4 种经典应用请看下篇。
 
-![](./images/wechat.png)
-![](./images/bilibili.png)
+![](https://gitee.com/HopeSmile/image-repo/blob/master/front-end-interview-summary/algorithm/wechat.png)
+![](https://gitee.com/HopeSmile/image-repo/blob/master/front-end-interview-summary/algorithm/bilibili.png)

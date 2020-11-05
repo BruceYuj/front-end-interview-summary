@@ -20,7 +20,9 @@ autoPrev: 4-binary-search-template-1
 
 > 在这里，我们暂且不把范围扩大到**更广义地知识学习**，就将范围约束在应试算法领域当中。
 
-![](./images/algos-dp/1.jpg)
+![](./images/6-1.jpg)
+(图 6-1)
+
 
 1. 攻克问题 1 的第一步就是，分别单独理解**应试算法**领域中的所有知识点，比如图论中的**单源最短路**。而由于**应试算法**的范围限定较多，考察也更多偏向于实现而非证明，所以这块内容难度并不会很大（相比于数学等纯粹学科来讲）
 2. 第二步，通过每个知识点的经典例题加深知识点理解。这块在基础竞赛教育中已经非常系统了。
@@ -66,6 +68,108 @@ autoPrev: 4-binary-search-template-1
 
 该模型起源于 **IOI 1994**，由于其考察内容之经典，在如今已经成为了动态规划的经典入门题目，并且不断变形出现在不同的赛场之上。
 
+![](./images/6-2.png)
+(图 6-2)
+
+在看到题目的时候，我们暂且不要先入为主，直接进入动态规划的思路（避免虚假的理解）。我们先抽取出题意来：
+1. 在所有合法的路径中获取路径和最大的路径
+2. 路径和为路径中所有数字的和
+3. 合法路径指的是不会越界，并且每步决策只能往左下或右下走
+
+面对这样的题意，我们最朴素的想法就是**枚举所有的可能路径，在枚举过程中计算路径和，比较得出最大和**
+
+代码也很容易得到：
+```python
+import sys
+input = sys.stdin.readline
+
+def dfs(i,j):
+    if i == r-1:
+        return a[i][j]
+    
+    res = 0
+    res = max(dfs(i+1, j), dfs(i+1, j+1)) + a[i][j]
+    
+    return res
 
 
+if __name__ == "__main__":
+    r = int(input())
+
+    a = [[] for i in range(r)]
+    ans = 0
+
+    for i in range(r):
+        a[i] = list(map(int, input().split()))
+    
+    ans = dfs(0, 0)
+    print(ans)
+```
+
+整体代码的思路和题意的思路是一致的，就是直接**模拟路径行走的过程**，从第一行开始，到最后一行结束，在每个点有两种可能决策：**向左下或者右下**。
+
+假设共有 $n$ 行，每行有两种决策，每次决策时间复杂度为 $O(1)$, 因此时间复杂度为 $O(2^n)$。
+
+上述代码稍微学过一点 **dfs** 的同学就能直接写出来，但是这里面仍然隐含另外一重深意：**阶段** - 我们理所当然的将每一行当作了一个阶段的划分依据，这是我们大脑直接模拟给出的，因为符合我们的日常生活场景。但是，很多时候题目给出的模型是抽象的，且很难映射联想，此时就需要多加注意了。
+
+仔细模拟下我们会发现，在整个 **dfs** 的过程中会产生大量如下图所示的重复计算。
+
+![](./images/6-4.jpg)
+(图 6-4)
+
+减少重复计算的方法之一就是用内存将其存储起来，也就是**空间换时间**。
+```python
+import sys
+input = sys.stdin.readline
+sys.setrecursionlimit(1500)
+
+def dfs(i,j):
+    if i == r-1:
+        dp[i][j] = a[i][j]
+        return dp[i][j]
+
+    if dp[i][j] != -1: return dp[i][j]    
+
+    dp[i][j] = max(dfs(i+1, j), dfs(i+1, j+1)) + a[i][j]
+    
+    return dp[i][j]
+
+
+if __name__ == "__main__":
+    r = int(input())
+
+    a = [[] for i in range(r)]
+    dp = [[-1] * (i+1) for i in range(r)]
+    ans = 0
+
+    for i in range(r):
+        a[i] = list(map(int, input().split()))
+    
+    ans = dfs(0, 0)
+    print(ans)
+```
+
+这也是我们所说的 **记忆化递归**，或者叫做 **从上到下的 DP**。这种微小的变化直接将时间复杂度降低到 $O(n^2)$ 级别。
+
+在这里，计算时间复杂度的技巧是直接统计**可能状态**的数量。
+
+> 注意： 这里 `sys.setrecursionlimit(1500)` 避免递归过深报 Runtime Error 错误
+
+从这里，我们更加深入的思考 `dp[i][j]` 是否有更多意义？
+
+从上述代码来看，`dp[i][j]` 其实存储的是：**从坐标(i, j) 开始走到最后一行的最大值**
+
+
+
+
+
+
+## 其他例题
+https://www.acwing.com/problem/content/1017/
+https://www.acwing.com/problem/content/1020/
+https://www.acwing.com/activity/content/problem/content/1258/1/
+https://www.acwing.com/problem/content/description/277/
+
+https://leetcode-cn.com/problems/unique-paths/
+https://leetcode-cn.com/problems/minimum-path-sum/
 

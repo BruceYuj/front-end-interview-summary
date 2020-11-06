@@ -1,6 +1,6 @@
 ---
 title: 动态规划（一）
-autoPrev: 4-binary-search-template-1
+autoPrev: 5-binary-search-template-2
 ---
 
 ## 前言
@@ -77,7 +77,7 @@ autoPrev: 4-binary-search-template-1
 3. 合法路径指的是不会越界，并且每步决策只能往左下或右下走
 
 面对这样的题意，我们最朴素的想法就是**枚举所有的可能路径，在枚举过程中计算路径和，比较得出最大和**
-
+![](./images/6-3.jpg)
 代码也很容易得到：
 ```python
 import sys
@@ -159,17 +159,49 @@ if __name__ == "__main__":
 
 从上述代码来看，`dp[i][j]` 其实存储的是：**从坐标(i, j) 开始走到最后一行的最大值**
 
+这样我们就将问题从 **(0, 0) 开始走到最后一行的最大值** 一般化到 **(i, j) 开始走到最后一行的最大值**。
+
+在这里，我们就可以将这种一般化定义为 **状态**（后面我们将 `(i, j)` 称为状态）。很明显，最后一行的所有 **状态** 可以直接求解，也就是所谓的**最简单子问题**。而整个问题的求解都是 **最大值**，属于**最值** 的一种，也就引出了**最优子结构**的概念。
+
+很明显的是，`(i, j)` 状态在被求解出来之后，不会受到 `(i-k, j1)` 的影响，也就是所谓的 **无后效性**。
+
+那么状态转移方程该如何得出来呢？
+
+在这里我们引入一种新的思考方式 - **从集合角度思考状态转换**（来源于 yxc - NOI 金牌得主）：
+![](./images/6-5.jpg)
 
 
+**最简单状态的表示** 是另外一个难点（数字三角形模型不存在问题，但是其他问题则需要好好思考一番，避免以后出错，比如部分背包问题的变形）
 
+**在这里，我仍然需要强调的是，上述无论是从朴素->记忆化-> dp，还是集合论思考，都只能减缓你思考的坡度，减少你思考的心智负担。而不能代替你思考，也不能帮助你如易筋经一般一通百通。动态规划的灵活性仍然需要你在上述两种思考方式的基础上大量经典例题的练习。**
+
+```python
+if __name__ == "__main__":
+    r = int(input())
+
+    a = [[] for i in range(r)]
+    f = [[0] * (i+1) for i in range(r)]
+    for i in range(r):
+        a[i] = list(map(int, input().split()))
+
+    for i in range(r-1, -1, -1):
+        for j in range(0, i+1):
+            if i == r-1:
+                f[i][j] = a[i][j]
+            else:
+                f[i][j] = max(f[i+1][j], f[i+1][j+1]) + a[i][j]
+    
+    print(f[0][0])
+```
 
 
 ## 其他例题
-https://www.acwing.com/problem/content/1017/
-https://www.acwing.com/problem/content/1020/
-https://www.acwing.com/activity/content/problem/content/1258/1/
+
 https://www.acwing.com/problem/content/description/277/
 
 https://leetcode-cn.com/problems/unique-paths/
+
 https://leetcode-cn.com/problems/minimum-path-sum/
+
+https://www.luogu.com.cn/problem/P1004
 

@@ -22,3 +22,8 @@
 
 帮助我们完成单元测试（模块）和集成测试
 
+## 哲学
+1. [delightful JavaScript Testing with Jest](https://www.youtube.com/watch?v=cAKYQpTC7MA)
+
+
+

@@ -22,17 +22,8 @@
 
 帮助我们完成单元测试（模块）和集成测试
 
-## matchers
-各种不同的语义化 matchers
-
-## jest 命令行命令
-- `o` 模式: 绑定 git 工具
-- `a` 模式
-- `f` 模式
-- `p` 模式
-- etc.
-
-## 异步代码测试
+## 哲学
+1. [delightful JavaScript Testing with Jest](https://www.youtube.com/watch?v=cAKYQpTC7MA)
 
 
 

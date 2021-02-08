@@ -1,36 +1,40 @@
 class Solution:
-    def minOperations(self, target, arr):
-        def bSearch(a, v):
-            l = 0
-            r = len(a) - 1
-            while l < r:
-                mid = (l+r) // 2
-                if a[mid] >= v:
-                    r = mid
-                else: l = mid+1
+    def maxTurbulenceSize(self, A) -> int:
+        n = len(A)
+        if n <= 1: return n
+        if n == 2:
+            if A[0] != A[1]: return n
+            else: return 1
+
+        i = 0
+        j = 1
+
+        flag = False 
+        if A[j] > A[j-1]: flag = True
+        ans = 2
+        while j+1 < n:
+            if A[j+1] > A[j] and not flag:
+                j += 1
+                flag = not flag
+                ans = max(ans, j-i+1)
+            elif A[j+1] < A[j] and flag:
+                j += 1
+                flag = not flag
+                ans = max(ans, j-i+1)
             
-            return l
-
-        h = []
-        d = {}
-        for i in range(len(target)):
-            d[target[i]] = i
-        
-        for x in arr:
-            if x in d: h.append(d[x])
-        
-        a = []
-
-        for i in range(len(h)):
-            if not a or h[i] > a[-1]:
-                a.append(h[i])
             else:
-                index = bSearch(a, h[i])
-                a[index] = h[i]
+                if A[j+1] == A[j]:
+                    i = j+1
+                    j = i+1
+                else:
+                    i = j
+                    j = j+1
+                    if A[j] > A[j-1]: flag = False
+                    else: flag = True 
         
-        return len(target) -  len(a)
+        return ans
 
 solution = Solution()
-a1 = [995168292,13690313,293160801,642482000,810529261,98173438,456394738,882168981,961299834,794671198]
-a2 = [13690313,794671198,957156640,882168981,882168981,293160801,794671198,111281680,293160801,642482000]
-solution.minOperations(a1, a2)
+ans = solution.maxTurbulenceSize([0,1,1,0,1,0,1,1,0,0])
+
+print(ans)

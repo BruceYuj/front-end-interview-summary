@@ -1,29 +1,31 @@
 class Solution:
-    def numberOfSubstrings(self, s: str) -> int:
-        n = len(s)
-        l = r = 0
-        cnt = [0,0,0]
-        ans = window = 0
-        for i in range(n):
-            if i != 0:
-                ch1 = ord(s[i]) - 97
-                cnt[ch1] -= 1
-                if cnt[ch1] == 0: window -= 1
+    def isValidSerialization(self, preorder: str) -> bool:
+        n = len(preorder)
+
+        i = 0
+        slots = 1
+        while i < n:
+            if slots == 0:
+                return False
+
+            if preorder[i] == ',':
+                i += 1
+                continue
             
-            while r < n and window < 3:
-                ch = ord(s[r]) - 97
-                cnt[ch] += 1
-                if cnt[ch] == 1: window += 1
-                r += 1
-            if window == 3:
-                ans += n-r+1
+            if preorder[i] == '#':
+                i += 1
+                slots -= 1
+                continue
+            
+            while i < n and preorder != ',':
+                i += 1
+            
+            slots += 1
         
-        return ans
-            
-                
+        return slots == 0
             
 
 solution = Solution()
-ans = solution.numberOfSubstrings("abcabc")
+ans = solution.isValidSerialization("9,3,4,#,#,1,#,#,2,#,6,#,#")
 
 print(ans)

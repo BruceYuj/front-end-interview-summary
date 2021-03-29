@@ -1,29 +1,38 @@
 class Solution:
-    def numberOfSubstrings(self, s: str) -> int:
-        n = len(s)
-        l = r = 0
-        cnt = [0,0,0]
-        ans = window = 0
-        for i in range(n):
-            if i != 0:
-                ch1 = ord(s[i]) - 97
-                cnt[ch1] -= 1
-                if cnt[ch1] == 0: window -= 1
-            
-            while r < n and window < 3:
-                ch = ord(s[r]) - 97
-                cnt[ch] += 1
-                if cnt[ch] == 1: window += 1
-                r += 1
-            if window == 3:
-                ans += n-r+1
+    def countPairs(self, n: int, edges, queries):
+        cnt = [[0, i] for i in range(n+1)]
         
-        return ans
+        for x in edges:
+            u, v = x
+
+            cnt[u][0] += 1
+            cnt[v][0] += 1
+        
+        cnt.sort()
+        
+        ans = [0] * len(queries)
+        
+        for i in range(len(queries)):
+            x = queries[i]
+            l = 0
+            r = n
             
+            while l < r:
+                mid = (l+r) // 2
+                if cnt[mid][0] > x:
+                    r = mid
+                else:
+                    l = mid+1
+            
+            tmp = (n-l+1)*(l-1) + (n-l+1)*(n-l)//2
+            
+            ans[i] = tmp
+                
+        return ans
                 
             
 
 solution = Solution()
-ans = solution.numberOfSubstrings("abcabc")
+ans = solution.countPairs(5,[[1,5],[1,5],[3,4],[2,5],[1,3],[5,1],[2,3],[2,5]],[1,2,3,4,5])
 
 print(ans)

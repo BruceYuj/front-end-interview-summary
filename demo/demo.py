@@ -1,5 +1,6 @@
 from typing import List
 
+<<<<<<< HEAD
 class Solution:
 <<<<<<< HEAD
     def countPairs(self, n: int, edges, queries):
@@ -52,14 +53,25 @@ ans = solution.countPairs(5,[[1,5],[1,5],[3,4],[2,5],[1,3],[5,1],[2,3],[2,5]],[1
                 if p[mid] <= x: l = mid
                 else: r = mid - 1
             return l
+=======
+>>>>>>> 0ee5c8a9f535cab9e0e815f620ef631f76cb61b5
 
-        n = len(a)
-        p = [0] * (n+1)
 
-        for i in range(1, n+1):
-            p[i] = p[i-1] + a[i-1]
+if __name__ == "__main__":
+    
+    while True:
         
+        h = list(map(int, input().split()))
+        n = h[0]
+        
+        if n == 0: break
+        
+        a = [-1] * (n+2)
+        a[1:n+1] = h[1:]
+        
+        st = [0]
         ans = 0
+<<<<<<< HEAD
 
         for i in range(1, n+1):
             if p[i] < t: continue
@@ -79,3 +91,17 @@ ans = solution.numSubarraysWithSum([0,0,0,0,0,0,1,0,0,0], 0)
 >>>>>>> 91f64733a5364f4d5f74198b61df88a09a2723c2
 
 print(ans)
+=======
+        for i in range(1, n+2):
+            print(i)
+            if a[st[-1]] < a[i]:
+                st.append(i)
+            else:
+                while st and a[st[-1]] >= a[i]:
+                    t = st.pop()
+                    ans = max(ans, a[t] * (i - st[-1]-1))
+                st.append(i)
+        
+        print(ans)
+    
+>>>>>>> 0ee5c8a9f535cab9e0e815f620ef631f76cb61b5

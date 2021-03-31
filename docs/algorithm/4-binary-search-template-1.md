@@ -163,6 +163,9 @@ return nums[l]
 2. [leetcode: 275. H 指数 II](https://leetcode-cn.com/problems/h-index-ii/)
 3. [codeforces edu 4 道题目](https://codeforces.com/edu/course/2/lesson/6/1/practice)
 
+**难题**：
+1. [acwing 113: 特殊排序](https://www.acwing.com/problem/content/115/)
+
 ### 实数二分模板
 ```
 binary_search(l , r): // 寻找结果

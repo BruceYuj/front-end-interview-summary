@@ -27,39 +27,39 @@ self.addEventListener('message', (event) => {
 self.__precacheManifest = [
   {
     "url": "404.html",
-    "revision": "00cc7217ced7cbe1abcbbcb8ae9ce7fb"
+    "revision": "783c6955a512d8a773f17e42bd1dbdda"
   },
   {
     "url": "algorithm/1-algorithms-learning-general-outline.html",
-    "revision": "e3217d85741a3a4a617430978e3976bc"
+    "revision": "f11969ee2e469d2e97bbc1bf639a0e64"
   },
   {
     "url": "algorithm/10-big-int-operation.html",
-    "revision": "96c2fb1722c186161c5adeb7ee53f7bb"
+    "revision": "a88714157f88104bfa08ec8629d2d07a"
   },
   {
     "url": "algorithm/2-merge-sort-and-questions.html",
-    "revision": "0bb41f3bd7bf0b7551fbb1beb40d91bd"
+    "revision": "7cfd529f519a7c3bbb80ae815fbe169e"
   },
   {
     "url": "algorithm/3-quick-sort-and-quick-select.html",
-    "revision": "e6fb3d9f03429e58dd4e28ed774d842d"
+    "revision": "dce810c89bc27472c6322f7e715cec4d"
   },
   {
     "url": "algorithm/4-binary-search-template-1.html",
-    "revision": "c2f6ed1989a8e25ee44f64afba4d77b4"
+    "revision": "3f36fca00dddc7052f8313ad4d112ba4"
   },
   {
     "url": "algorithm/5-binary-search-template-2.html",
-    "revision": "a9f6392d50e84e609d24f818208c359a"
+    "revision": "95a549542d03dbbb8a94a96ad219cf8d"
   },
   {
     "url": "algorithm/6-dynamic-programming.html",
-    "revision": "8ffdd60985ffd066097c85aa80395739"
+    "revision": "d25e7480c1ab3fc9200c586cdb615a88"
   },
   {
     "url": "algorithm/index.html",
-    "revision": "c119b5c5c6032861455ef48740a8382c"
+    "revision": "7f62418aa9c38dd6f42bd0576495c3ec"
   },
   {
     "url": "assets/css/0.styles.4db39399.css",
@@ -466,8 +466,8 @@ self.__precacheManifest = [
     "revision": "1bf6a37945dc91c3ffd3750eb4cf40c1"
   },
   {
-    "url": "assets/js/14.3ff8f527.js",
-    "revision": "a4bbd696afafa6793ea8ad9ec6068d64"
+    "url": "assets/js/14.efde4dad.js",
+    "revision": "0c25352c53067bc5ca21a8a0bb3b7ed8"
   },
   {
     "url": "assets/js/15.159b4fae.js",
@@ -538,20 +538,20 @@ self.__precacheManifest = [
     "revision": "721d9961be88827e8bbf3bbbdb7f5a52"
   },
   {
-    "url": "assets/js/30.fd89296c.js",
-    "revision": "a96e41d5912e68e94b9f72112e6c78cf"
+    "url": "assets/js/30.9147f506.js",
+    "revision": "75c51771f4fd7ebe97628e7b68f3ce3e"
   },
   {
     "url": "assets/js/31.85aab8c9.js",
     "revision": "2b739738c229d8f4a7d13a989fac5d69"
   },
   {
-    "url": "assets/js/32.2aecae5c.js",
-    "revision": "748e8eb1195c0d54adf562b69bb957a0"
+    "url": "assets/js/32.2b546f08.js",
+    "revision": "1cc9d9128482b2ec036b71fe8f5990c5"
   },
   {
-    "url": "assets/js/33.acdd6ea2.js",
-    "revision": "96ca55d9ec0da10a4aed4ba2762be1a5"
+    "url": "assets/js/33.2fba3cd1.js",
+    "revision": "8acb0fb7908ed6519b18a14e8c000b1e"
   },
   {
     "url": "assets/js/34.3380eee3.js",
@@ -570,8 +570,8 @@ self.__precacheManifest = [
     "revision": "3c63f24f1f66739401be796f60f49690"
   },
   {
-    "url": "assets/js/38.3df70b3c.js",
-    "revision": "73c90b8ed66a4f69b45d32cdd444bb18"
+    "url": "assets/js/38.ee0bf670.js",
+    "revision": "f2470dd4a90dbce33f59261099026772"
   },
   {
     "url": "assets/js/39.ceea38be.js",
@@ -646,12 +646,12 @@ self.__precacheManifest = [
     "revision": "73457d137eb03dc03614e3054ce43016"
   },
   {
-    "url": "assets/js/55.6a85dcd0.js",
-    "revision": "520445bafca503808c475f39ddfe32bf"
+    "url": "assets/js/55.ddea87d9.js",
+    "revision": "4211ba584f10ae5ad96fed5c77225859"
   },
   {
-    "url": "assets/js/56.8f4747cc.js",
-    "revision": "153d99d5c734dbf46ae445ca6a2439cd"
+    "url": "assets/js/56.bc871a11.js",
+    "revision": "150a493d466b0060738d69d74bd3b692"
   },
   {
     "url": "assets/js/57.46fbd2e6.js",
@@ -662,192 +662,192 @@ self.__precacheManifest = [
     "revision": "f7f400eed0fb16624aa37032012f726b"
   },
   {
-    "url": "assets/js/7.228d03a2.js",
-    "revision": "b16508b19de0f1cdaf5dd176ffe3e001"
+    "url": "assets/js/7.cd4f6e3f.js",
+    "revision": "65ae7161c3b1ab0a38a77e3fd96625c2"
   },
   {
-    "url": "assets/js/8.019ed6a2.js",
-    "revision": "7e635a345f4807f0bb833604b0d1d2a0"
+    "url": "assets/js/8.fb1b07be.js",
+    "revision": "f311b552041c20fdd175a099c40aee87"
   },
   {
-    "url": "assets/js/9.c34f9d80.js",
-    "revision": "6b646b800342e444376dcfcfc9c0ef20"
+    "url": "assets/js/9.cff9bb9a.js",
+    "revision": "a10f343654a0909e31ee564a23a6bc0d"
   },
   {
-    "url": "assets/js/app.5ec939fb.js",
-    "revision": "2ab8458aa6e2a465f52c771f9406fa7f"
+    "url": "assets/js/app.d6389213.js",
+    "revision": "dd21c08d3d75011620851a8939420759"
   },
   {
     "url": "front-end/browser/index.html",
-    "revision": "79d7ab9b76e012c39d1974f36b88c1cd"
+    "revision": "8ff265beb1a8ca6d39de2574845b855d"
   },
   {
     "url": "front-end/browser/reference.html",
-    "revision": "301a6a47e6e7d0cc5984a3131b18e6d7"
+    "revision": "8ab44983b822ab3944bddaba36bfe1ba"
   },
   {
     "url": "front-end/front-end-thinking/1-how-to-get-in-leetcode-contest.html",
-    "revision": "4776c6da30cfc9a5fcd0ce300bfe7312"
+    "revision": "ea0c2eacc1f11dbd6be2ecbb92f22b1f"
   },
   {
     "url": "front-end/front-end-thinking/index.html",
-    "revision": "89351a2af9e0fbf31e43387c8db7eda9"
+    "revision": "25dedcee7d31e540180b18eea2f73e34"
   },
   {
     "url": "front-end/JavaScript/1-completion-record.html",
-    "revision": "9e2591b4b5a81f3586bca4ce953cf425"
+    "revision": "675cb0dc44df9b08d270fd34eb4416a7"
   },
   {
     "url": "front-end/JavaScript/2-built-in-parseInt.html",
-    "revision": "be57970dfbdd37f01a1cc319d067d01c"
+    "revision": "048ca49aac5f1f6a6730af4c530f7b9c"
   },
   {
     "url": "front-end/JavaScript/3-Array-prototype-map.html",
-    "revision": "4b0f9db66c5137183f996b3dc10d1791"
+    "revision": "d1de6ed2a6c806bf3c8e0b98ae6b2bba"
   },
   {
     "url": "front-end/JavaScript/4-javascript-declaration.html",
-    "revision": "bf1d5086252ba1ad0a6d4fdeca22fcb8"
+    "revision": "f235e32e678a294a26a7e0f3d565f2a2"
   },
   {
     "url": "front-end/JavaScript/5-es6-block-scope.html",
-    "revision": "487abe076de28bd4c432d2a2bb579166"
+    "revision": "733332cb8473f6a1bb0dde8eedce8f8d"
   },
   {
     "url": "front-end/JavaScript/6-environment-record.html",
-    "revision": "af4f371f05ded6efeb38866c92a597c3"
+    "revision": "f13a136ac1748e2a2d241a249055e666"
   },
   {
     "url": "front-end/JavaScript/7-block-level-function.html",
-    "revision": "a37f3a84cbb10c18af03b6bf6ed7c983"
+    "revision": "78de4f94e3459bb9c034547fd5f04275"
   },
   {
     "url": "front-end/JavaScript/drafts/bitwise-operators.html",
-    "revision": "318646e2ef4a3e35001b114daefe3a65"
+    "revision": "b91d73f6e2a58762573c621a00b6d7bb"
   },
   {
     "url": "front-end/JavaScript/drafts/event-loop-in-CS.html",
-    "revision": "1ad21f036049085e2994f7f704cb8d9d"
+    "revision": "0d40ff5b739c62d4c4cfeafc76747087"
   },
   {
     "url": "front-end/JavaScript/drafts/Inheritance-and-prototype-chain.html",
-    "revision": "f0c0e9b53cddd681c2a0e15a3a0ded4a"
+    "revision": "d330ff12f127664536f23155e260ae32"
   },
   {
     "url": "front-end/JavaScript/drafts/this(undo).html",
-    "revision": "06b7584985d1439d819b49027445e5f1"
+    "revision": "1ea3b8c9244851b10b5c0467fd20da44"
   },
   {
     "url": "front-end/JavaScript/drafts/using-object.html",
-    "revision": "67210758b91e2009869b2851493d29ca"
+    "revision": "9aa8bbdfbf61e4fcc13f47d2c85d7eca"
   },
   {
     "url": "front-end/JavaScript/index.html",
-    "revision": "e42b8bdfc14d79bf466f41ee55466a0d"
+    "revision": "0ef1503c40ecee3d29126e0d5276c777"
   },
   {
     "url": "front-end/JavaScript/modular-programming/es-module.html",
-    "revision": "d23fb0a772f9be86a81025401e1ffa89"
+    "revision": "87dbc0aacf518669f25bd2dff8f33d42"
   },
   {
     "url": "front-end/JavaScript/modular-programming/evolution-of-js-modularity-1.html",
-    "revision": "b456a50f7ae460e2349c39b53bb0a54a"
+    "revision": "dd1fece6f356d5eb128fd24b81227582"
   },
   {
     "url": "front-end/JavaScript/modular-programming/modular-programming-introduction.html",
-    "revision": "7fde41b371579fd2efd94580b68b512f"
+    "revision": "796a7c76bf49aa2c2f55e211adc0eb02"
   },
   {
     "url": "front-end/JavaScript/modular-programming/node-commonjs-module.html",
-    "revision": "83e2fc64d8968b34dd2461e09bbff4d9"
+    "revision": "cf0aee4d23a68df3a8637b0872cc1393"
   },
   {
     "url": "front-end/Mom-I-Cant-Learn-Anymore/1-CSS-one-line-layout.html",
-    "revision": "aae68b9c53ed450180d0bc77f2d5747e"
+    "revision": "06aeea4a824c3851e502c10dc8756a32"
   },
   {
     "url": "front-end/Mom-I-Cant-Learn-Anymore/2-how-to-quantitatively-analyze-bundlers.html",
-    "revision": "da56e40617009237d64cf6df93f902af"
+    "revision": "d83cd2163350da4402008a24d819c156"
   },
   {
     "url": "front-end/Mom-I-Cant-Learn-Anymore/index.html",
-    "revision": "dceeecfa0195b29d7c90831bccd06b0d"
+    "revision": "4daff035bef3484cabb95683f511ea77"
   },
   {
     "url": "front-end/vue/mixin-HoC-hook.html",
-    "revision": "e27b3274ac5a1a5fcf06b891b17b6981"
+    "revision": "657b9b75a0a28853b173d5b2f9df27cf"
   },
   {
     "url": "front-end/vue/vue3-source-code.html",
-    "revision": "3aebc73243a7d89cfcbdb86c4f258ce4"
+    "revision": "1b0760076d65ee6f54c20234c9db61b6"
   },
   {
     "url": "index.html",
-    "revision": "22997473ca8108da1ffd88f5a6427b79"
+    "revision": "a91f607862976ac5c1a2c33187250f5a"
   },
   {
     "url": "info/index.html",
-    "revision": "2cd47a0f6dcda86bf81fb6053adffcf1"
+    "revision": "34803be82fb718089ff04c41a9382bf8"
   },
   {
     "url": "network/http/1-http-history.html",
-    "revision": "a3d5a31291c3164db4620421fe2326bd"
+    "revision": "8b916c8e1645866cecdd4f1158100a02"
   },
   {
     "url": "network/http/2-http-definition.html",
-    "revision": "8927d58ca4f581754775e550eec9b297"
+    "revision": "fd2cac3e6e16076e9340035a29bf24dc"
   },
   {
     "url": "network/http/3-http-actual-process.html",
-    "revision": "d1f5a1754fa9096ab43ad04c99f3c64f"
+    "revision": "ac06d5a6a1aa99eab5f8456900822eee"
   },
   {
     "url": "network/http/4-http-concepts.html",
-    "revision": "75ab98f23be6a30e44cd565ed2c08cb6"
+    "revision": "ae8e0715d6d3622979a028e437fb32b9"
   },
   {
     "url": "network/http/5-http-request-methods.html",
-    "revision": "0b95a9c75d56690b1cdf42434365ba7e"
+    "revision": "136bc9f0040b1b878bbc45dac0a97a1c"
   },
   {
     "url": "network/http/6-Why-design-MIME.html",
-    "revision": "4d0fb25e605b76d68fa0281e5a48f4ca"
+    "revision": "ff588d0e98cb47d0c9d6265f1ea58ebe"
   },
   {
     "url": "network/http/7-http-body.html",
-    "revision": "59edd6adc81b9754752cd77a78d19bc4"
+    "revision": "eb8dbffadb051584295d63e22f4cca92"
   },
   {
     "url": "network/http/index.html",
-    "revision": "5e6563387ea7c5ff0584db980f05f975"
+    "revision": "2bdb9f2ec3892be84b085c766c5cbe55"
   },
   {
     "url": "system-design/why-is-the-design/1-Why-design-MIME.html",
-    "revision": "ecbe4831908db55643d3e2113e39bb96"
+    "revision": "f5cc34733788f85f1b25a13a5f97f766"
   },
   {
     "url": "system-design/why-is-the-design/2-why-setTimeout-4ms.html",
-    "revision": "3752f07a08c0c133a6a23f020ad711aa"
+    "revision": "d9f6576695de9837b8cb5e9811f1acaf"
   },
   {
     "url": "system-design/why-is-the-design/3-why-design-fetch-api.html",
-    "revision": "777925d53a4ca7d96bc1dd7f2b72b343"
+    "revision": "bda54c615ba8ad199f2db64773d7adf0"
   },
   {
     "url": "system-design/why-is-the-design/index.html",
-    "revision": "378c2172b3d1e088adfe554ef3f1e9cd"
+    "revision": "7b50ffe2c2f80a6ab3b855e333f9150b"
   },
   {
     "url": "thinking-more/1-why-we-need-independent-thinking.html",
-    "revision": "2c6a2df103e791d476fd352fb29de59d"
+    "revision": "dddb0b826fd02fd8ef2f9a4271b0f2cc"
   },
   {
     "url": "thinking-more/2-escaping-from-smartphone.html",
-    "revision": "b02fcd27b7919b9ebca8a117f5e1300d"
+    "revision": "3d34cb4fe8e0bca3736beae9b216d6e3"
   },
   {
     "url": "thinking-more/index.html",
-    "revision": "26f95c0e689694d74c2b12644a597d41"
+    "revision": "0dd35461292aeb7d0f1e8ac50c12430e"
   }
 ].concat(self.__precacheManifest || []);
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});

@@ -1,107 +1,100 @@
-from typing import List
+import sys
+sys.setrecursionlimit(400020)
 
-<<<<<<< HEAD
-class Solution:
-<<<<<<< HEAD
-    def countPairs(self, n: int, edges, queries):
-        cnt = [[0, i] for i in range(n+1)]
-        
-        for x in edges:
-            u, v = x
+def add(a, b):
+    global idx
+    e[idx] = b
+    ne[idx] = h[a]
+    h[a] = idx
+    idx += 1
 
-            cnt[u][0] += 1
-            cnt[v][0] += 1
-        
-        cnt.sort()
-        
-        ans = [0] * len(queries)
-        
-        for i in range(len(queries)):
-            x = queries[i]
-            l = 0
-            r = n
-            
-            while l < r:
-                mid = (l+r) // 2
-                if cnt[mid][0] > x:
-                    r = mid
-                else:
-                    l = mid+1
-            
-            tmp = (n-l+1)*(l-1) + (n-l+1)*(n-l)//2
-            
-            ans[i] = tmp
-                
-        return ans
-                
-            
+def hasEuler():
 
-solution = Solution()
-ans = solution.countPairs(5,[[1,5],[1,5],[3,4],[2,5],[1,3],[5,1],[2,3],[2,5]],[1,2,3,4,5])
-=======
-    def numSubarraysWithSum(self, a: List[int], t: int) -> int:
-        def binary_search(l, r, x):
-            while l < r:
-                mid = (l+r) // 2
-                if p[mid] >= x: r = mid
-                else: l = mid+1
-            return l
+    for i in range(1, n+1):
+        if flag == 1:
+            if (gin[i] + gout[i]) % 2 != 0: return False
+        else:
+            if gin[i] != gout[i]: return False
         
-        def binary_search1(l, r, x):
-            while l < r:
-                mid = (l+r+1) // 2
-                if p[mid] <= x: l = mid
-                else: r = mid - 1
-            return l
-=======
->>>>>>> 0ee5c8a9f535cab9e0e815f620ef631f76cb61b5
+    return True
 
-
-if __name__ == "__main__":
+def dfs(u):
     
-    while True:
+    i = h[u]
+
+    while i != -1:
+        if used[i]:
+            h[u] = ne[i]
+            i = ne[i]
+            continue
         
-        h = list(map(int, input().split()))
-        n = h[0]
+        h[u] = ne[i]
+        # used[i] = True
+        if flag == 1: used[i^1] = True
         
-        if n == 0: break
+        print("dfs %d" %i)
+        dfs(e[i])
         
-        a = [-1] * (n+2)
-        a[1:n+1] = h[1:]
-        
-        st = [0]
-        ans = 0
-<<<<<<< HEAD
-
-        for i in range(1, n+1):
-            if p[i] < t: continue
-            x = p[i] - t
-
-            l = binary_search(0, i-1, x)
-            r = binary_search1(0, i-1, x)
-            # print(l, r)
-
-            ans += (r-l+1)
-
-        return ans        
-            
-
-solution = Solution()
-ans = solution.numSubarraysWithSum([0,0,0,0,0,0,1,0,0,0], 0)
->>>>>>> 91f64733a5364f4d5f74198b61df88a09a2723c2
-
-print(ans)
-=======
-        for i in range(1, n+2):
-            print(i)
-            if a[st[-1]] < a[i]:
-                st.append(i)
+        if flag == 1: 
+            if i % 2 == 1:
+                st.append(-(i//2+1))
             else:
-                while st and a[st[-1]] >= a[i]:
-                    t = st.pop()
-                    ans = max(ans, a[t] * (i - st[-1]-1))
-                st.append(i)
+                st.append(i//2+1)
+        else:
+            st.append(i+1)
         
-        print(ans)
+        i = ne[i]
     
->>>>>>> 0ee5c8a9f535cab9e0e815f620ef631f76cb61b5
+    # print("YE")    
+    
+if __name__ == "__main__":
+    flag = int(input())
+    
+    n, m = map(int, input().split())
+    
+    h = [-1] * (n+10)
+    e = [0] * (m+10)
+    ne = [0] * (m+10)
+    idx = 0
+    
+    gin = [0] * (n+10)
+    gout = [0] * (n+10)
+    
+    
+    if flag == 1:
+        e = [0] * (4*m+10)
+        ne = [0] * (4*m+10)
+    
+    for i in range(m):
+        x, y = map(int, input().split())
+        
+        add(x, y)
+        gout[x] += 1
+        gin[y] += 1
+        
+        if flag == 1:
+            add(y, x)
+    
+    st = []
+    used = [False] * (4*m+10)
+     
+    if not hasEuler():
+        print("NO")
+        exit()
+    
+    for i in range(1, n+1):
+        if h[i] != -1:
+            dfs(i)
+            break
+    
+    if len(st) < m:
+        print("NO")
+        exit()
+    
+    print("YES")    
+    while st:
+        print(st.pop(), end=" ")
+    
+    
+    
+    

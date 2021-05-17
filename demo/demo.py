@@ -1,23 +1,27 @@
-def move(pos):
-    tmp = a[pos]
-    for i in range(pos-1, -1, -1):
-        a[i+1] = a[i]
-    
-    a[0] = tmp
-
-if __name__ == "__main__":
-    n, q = map(int, input().split())
-
-    a = list(map(int, input().split()))
-
-    q = list(map(int, input().split()))
-    for t in q:
-        pos = 0
-
-        for j in range(n):
-            if a[j] == t:
-                pos = j
-                break
+class Solution:
+    def maxSumMinProduct(self, nums) -> int:
         
-        print(pos+1)
-        move(pos)
+        nums = [0] + nums + [0]
+        
+        n = len(nums)
+        s = [0] * n
+        st = []
+        ans = 0
+        
+        for i in range(1, n):
+            s[i] = s[i-1] + nums[i]
+        
+        for i in range(n):
+            if not st or nums[st[-1]] <= nums[i]:
+                st.append(i)
+            
+            while nums[st[-1]] > nums[i]:
+                t = st.pop()
+            
+                ans = max(ans, (s[i-1]-s[st[-1]])*nums[t])
+        
+        return ans
+    
+
+so = Solution()
+ans = so.maxSumMinProduct([2,3,3,1,2])

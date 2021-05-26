@@ -199,5 +199,121 @@ if __name__ == "__main__":
 
 4. [acwing 274. 移动服务](https://www.acwing.com/problem/content/276/)
 
+我们先从题意抽象出条件：
+1. 三个人起点在 $1, 2, 3$
+2. 任意时刻只能移动一个人，且每个点只能有一个人
+3. 移动费用为 $c(p, q)$， 且不对称(也就是 $c(p,q) \neq c(q, p)$)，但是 $c(p,p) = 0$
+4. 过程中不能去其他地方
 
+求执行 n 次请求的最小花费
+
+- 阶段：我们将 **已经完成的请求** 当成阶段，通过指派一名人员，可以将 “完成 i-1 个请求” 的状态转移到 “完成 i 个请求” 的状态
+- 状态：为了计算指派的费用，我们需要知道每个阶段服务员的位置，因此最直接的方法是将三个人员的位置信息附加在状态中，也就是 $f(i, x, y, z)$, 其表示完成了前 i 个请求，三个员工位于 x, y, z 时，公司当前最小的花费。
+
+$f(i, x, y, z)$ 可以用来更新**第 i+1 阶段**，转移通常有三种，也就是派三个员工去第 i+1 个请求处：
+- 派第一个员工： $f(i+1, p_{i+1}, y, z) = min(f(i+1, p_{i+1}, y, z), f(i, x, y, z) + c(x, p_{i+1}))$
+- 派第二个员工： $f(i+1, x, p_{i+1}, z) = min(f(i+1, x, p_{i+1}, z), f(i, x, y, z) + c(y, p_{i+1}))$
+- 派第三个员工： $f(i+1, x, y, p_{i+1}) = min(f(i+1, x, y, p_{i+1}), f(i, x, y, z) + c(z, p_{i+1}))$
+
+
+
+时间复杂度为 $O(NL^3) = 2*10^9$
+
+初始化：$f(0, 1, 2, 3) = 0$, 其他为正无穷
+```python
+
+if __name__ == "__main__":
+    m, n = map(int, input().split())
+    
+    M = m+1
+    N = n+1
+    c = [[0] * M for i in range(M)]
+    
+    for i in range(1, M):
+        c[i][1:M] = map(int, input().split())
+    
+    q = list(map(int, input().split()))
+    
+    f = [[[[float("inf")] * M  for i in range(M)] for j in range(M)] for k in range(N)]
+    f[0][1][2][3] = 0
+    
+    for i in range(1, N):
+        p = q[i-1]
+        
+        for x in range(1, M):
+            for y in range(1, M):
+                for z in range(1, M):
+                    if x == y or y == z or x == z: continue
+                
+                    f[i][p][y][z] = min(f[i][p][y][z], f[i-1][x][y][z] + c[x][p])
+                    f[i][x][p][z] = min(f[i][x][p][z], f[i-1][x][y][z] + c[y][p])
+                    f[i][x][y][p] = min(f[i][x][y][p], f[i-1][x][y][z] + c[z][p])
+    
+    res = float("inf")
+    
+    for x in range(1, M):
+        for y in range(1, M):
+            for z in range(1, M):  
+                if x == y or y == z or x == z: continue
+            
+                if x == q[n-1] or y == q[n-1] or z == q[n-1]:
+                    res = min(res, f[n][x][y][z])
+                    
+    print(res)
+```
+
+仔细观察可以看到，第 i 个请求完成时，一定有一个员工在 $p_i$ 处，因此只需要知道阶段 i 和另外两个员工的位置即可。第三个员工的信息属于冗余信息, 因此我们可以用 $f(i, x, y)$ 表示执行了第 $i$ 次请求，员工分别为 $p_i, x, y$ 的最小值。
+
+- 派位于$p_i$ 员工： $f(i+1,x, y) = min(f(i+1,x, y), f(i, x, y) + c(p_i, p_{i+1}))$
+- 派位于 $x$ 员工： $f(i+1, p_{i}, y) = min(f(i+1,p_{i}, y), f(i,x, y) + c(x, p_{i+1}))$
+- 派位于 $y$员工： $f(i+1, x, p_{i}) = min(f(i+1, x, p_{i}), f(i, x, y) + c(y, p_{i+1}))$
+ 
+时间复杂度为 $O(NL^2)$
+
+初始化：$f[0][1][2] = 0$, 其他为正无穷
+```python
+import sys
+input = sys.stdin.readline
+
+
+if __name__ == "__main__":
+    m, n = map(int, input().split())
+    
+    M = m+1
+    N = n+1
+    c = [[0] * M for i in range(M)]
+    
+    for i in range(1, M):
+        c[i][1:M] = map(int, input().split())
+    
+    q = [0] * N
+    q[0] = 3
+    q[1:N] = map(int, input().split())
+    
+    f = [[[float("inf")] * M for i in range(M)] for j in range(N)]
+    f[0][1][2] = 0
+    
+    for i in range(1, N):
+        p = q[i-1]
+        p1 = q[i]
+        
+        for x in range(1, M):
+            for y in range(1, M):
+                    if x == y or x == p or y == p: continue
+                
+                    f[i][x][y] = min(f[i][x][y], f[i-1][x][y] + c[p][p1])
+                    f[i][p][y] = min(f[i][p][y], f[i-1][x][y] + c[x][p1])
+                    f[i][x][p] = min(f[i][x][p], f[i-1][x][y] + c[y][p1])
+
+    
+    res = float("inf")
+    
+    for x in range(1, M):
+        for y in range(1, M):
+            if x == y or y == q[n] or x == q[n]: continue
+        
+            res = min(res, f[n][x][y])
+                    
+    print(res)
+```
 

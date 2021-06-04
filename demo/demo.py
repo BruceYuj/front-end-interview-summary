@@ -1,27 +1,50 @@
+import heapq
+from collections import defaultdict
+
 class Solution:
-    def maxSumMinProduct(self, nums) -> int:
+    def assignTasks(self, servers, tasks) :
         
-        nums = [0] + nums + [0]
-        
-        n = len(nums)
-        s = [0] * n
-        st = []
-        ans = 0
-        
-        for i in range(1, n):
-            s[i] = s[i-1] + nums[i]
+        n = len(servers)
+        m = len(tasks)
+        hp = []
+        d = defaultdict(list)
         
         for i in range(n):
-            if not st or nums[st[-1]] <= nums[i]:
-                st.append(i)
+            hp.append((servers[i], i))
+        
+        heapq.heapify(hp)
+        
+        ans = [-1] * m
+        
+        cnt = 0
+        
+        for i in range(m):
+            if cnt < i: cnt = i
+                
+                
+            if d[cnt]:
+                for x in d[cnt]:
+                    heapq.heappush(hp, x)
+                
+                d[cnt] = []
             
-            while nums[st[-1]] > nums[i]:
-                t = st.pop()
-            
-                ans = max(ans, (s[i-1]-s[st[-1]])*nums[t])
+            if not hp:
+                cnt += 1
+                while not d[cnt]:
+                    cnt += 1
+                
+                for x in d[cnt]:
+                    heapq.heappush(hp, x)
+                d[cnt] = []                
+
+                
+            t = heapq.heappop(hp)
+
+            ans[i] = t[1]
+            d[i+tasks[i]].append(t)
         
         return ans
-    
+        
 
 so = Solution()
-ans = so.maxSumMinProduct([2,3,3,1,2])
+ans = so.assignTasks([31,96,73,90,15,11,1,90,72,9,30,88], [87,10,3,5,76,74,38,64,16,64,93,95,60,79,54,26,30,44,64,71])

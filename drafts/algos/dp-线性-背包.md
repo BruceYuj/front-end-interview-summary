@@ -296,3 +296,8 @@ if __name__ == "__main__":
 ```
 
 
+
+## 例题：
+
+1. https://leetcode-cn.com/problems/ones-and-zeroes/ 01 背包
+2. https://leetcode-cn.com/problems/target-sum/ 01 背包

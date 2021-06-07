@@ -94,3 +94,8 @@ class Solution:
 ```
 
 ## **离线的 RMQ 问题**
+
+## 例题
+1. [leetcode 962. 最大宽度坡](https://leetcode-cn.com/problems/maximum-width-ramp/)
+
+2. [leetcode 1124. 表现良好的最长时间段](https://leetcode-cn.com/problems/longest-well-performing-interval/)

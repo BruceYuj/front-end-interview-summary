@@ -301,3 +301,4 @@ if __name__ == "__main__":
 
 1. https://leetcode-cn.com/problems/ones-and-zeroes/ 01 背包
 2. https://leetcode-cn.com/problems/target-sum/ 01 背包
+3. https://leetcode-cn.com/problems/last-stone-weight-ii/ 01 背包

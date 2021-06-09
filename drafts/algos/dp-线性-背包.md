@@ -301,3 +301,33 @@ if __name__ == "__main__":
 
 1. https://leetcode-cn.com/problems/ones-and-zeroes/ 01 背包
 2. https://leetcode-cn.com/problems/target-sum/ 01 背包
+3. https://leetcode-cn.com/problems/last-stone-weight-ii/ 01 背包
+4. https://leetcode-cn.com/problems/profitable-schemes/ 01 背包变种
+
+题目要求：
+1. 求所有工作的可能方案数
+2. 限制条件：该方案的总用人最多是 n 个人；该方案的总利润最少时 minProfit
+
+朴素做法是什么？
+
+dfs 枚举所有的可能方案，然后判断每个方案是否合理，时间复杂度为 $O(n*2^n)$，很显然会超时。
+
+仔细观察，我们会发现，如果限制条件只有一个的话，和 01 背包问题很像：
+1. 求方案数，方案最多用人为 n。 $f(i, j)$ 表示前 i 个工作，最多 j 个人可以组合的方案数。成本是每个工作的用人，价值是前 i-1 个工作的方案数。 $f(i, j) = f(i-1, j) + f(i-1, j-g[i]), 如果 j \geq g[i]$，就是简单的 01 背包求方案数。
+2. 求方案数，方案的最低利润是 j。有两种状态表示方法
+   - $f(i, j)$ 表示前 i 个工作，利润正好是 j 的方案数。 $f(0, 0) = 1, 其余是 0$. 
+        - $f(i, j) = f(i-1, j) + f(i-1, j-g[i])$
+        - 最终结果是 $sum(f(n, x)), x geq minProfits$
+   - $f(i, j)$ 表示前 i 个工作，利润至少是 j 的方案数。 $f(0, 0) = 1, 其余是 0$.
+        - $f(i, j) = f(i-1, j) + f(i-1, max(0, j-g[i]))$
+        - 最终结果是 $f(n, minProfits)$
+
+那么两个条件结合起来，通过增加一个维度的信息，可以完整的表示状态。
+$f(i, j, k)$ 可以表示为前 i 个工作，最多 j 个人，最少利润是 k 的方案数，答案是 $f(n, m, t)$。初始化是 $f(0, i, 0) = 1, 其余是 0$
+
+$f(i, j, k) = f(i-1, j, k) + f(i-1, j-g[i], max(0, k-p[i]))$
+
+上面的状态表示同样可以表示为其他含义，导致初始化不一样，比如：
+表示为 前 i 个共还，共花费 j 个人，最少利润是 k 的方案数。$f(0, 0, 0) = 1, 其余是 0$， 答案是 $\sum f(n, i, minProfit)$
+
+

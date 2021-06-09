@@ -1,50 +1,44 @@
-import heapq
-from collections import defaultdict
-
 class Solution:
-    def assignTasks(self, servers, tasks) :
-        
-        n = len(servers)
-        m = len(tasks)
-        hp = []
-        d = defaultdict(list)
-        
+    def minFlips(self, s: str) -> int:
+        da = db = 0
+        a = '10'
+        b = '01'
+        n = len(s)
+
         for i in range(n):
-            hp.append((servers[i], i))
-        
-        heapq.heapify(hp)
-        
-        ans = [-1] * m
-        
-        cnt = 0
-        
-        for i in range(m):
-            if cnt < i: cnt = i
-                
-                
-            if d[cnt]:
-                for x in d[cnt]:
-                    heapq.heappush(hp, x)
-                
-                d[cnt] = []
+            if s[i] != a[i%2]:
+                da += 1
             
-            if not hp:
-                cnt += 1
-                while not d[cnt]:
-                    cnt += 1
-                
-                for x in d[cnt]:
-                    heapq.heappush(hp, x)
-                d[cnt] = []                
-
-                
-            t = heapq.heappop(hp)
-
-            ans[i] = t[1]
-            d[i+tasks[i]].append(t)
+            if s[i] != b[i%2]:
+                db += 1
         
-        return ans
-        
+        res = min(da, db)
+        print(da, db)
+        s = s + s
 
-so = Solution()
-ans = so.assignTasks([31,96,73,90,15,11,1,90,72,9,30,88], [87,10,3,5,76,74,38,64,16,64,93,95,60,79,54,26,30,44,64,71])
+        for i in range(1, n):
+            da1 = da 
+            db1 = db
+            if s[i-1] == '1':
+                db1 -= 1
+            else:
+                da1 -= 1
+
+            if s[i+n-1] == '1':
+                if not (n & 1):
+                    da = db1 + 1
+                else:
+                    db = da1 + 1
+            else:
+                if n & 1:
+                    da = db1 + 1
+                else:
+                    db = da1 + 1
+            
+            res = min(res, da, db)
+        
+        return res
+
+s = Solution()
+ans = s.minFlips("01001001101")
+print(ans)

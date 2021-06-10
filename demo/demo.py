@@ -1,27 +1,44 @@
 class Solution:
-    def maxSumMinProduct(self, nums) -> int:
-        
-        nums = [0] + nums + [0]
-        
-        n = len(nums)
-        s = [0] * n
-        st = []
-        ans = 0
-        
-        for i in range(1, n):
-            s[i] = s[i-1] + nums[i]
-        
-        for i in range(n):
-            if not st or nums[st[-1]] <= nums[i]:
-                st.append(i)
-            
-            while nums[st[-1]] > nums[i]:
-                t = st.pop()
-            
-                ans = max(ans, (s[i-1]-s[st[-1]])*nums[t])
-        
-        return ans
-    
+    def minFlips(self, s: str) -> int:
+        da = db = 0
+        a = '10'
+        b = '01'
+        n = len(s)
 
-so = Solution()
-ans = so.maxSumMinProduct([2,3,3,1,2])
+        for i in range(n):
+            if s[i] != a[i%2]:
+                da += 1
+            
+            if s[i] != b[i%2]:
+                db += 1
+        
+        res = min(da, db)
+        print(da, db)
+        s = s + s
+
+        for i in range(1, n):
+            da1 = da 
+            db1 = db
+            if s[i-1] == '1':
+                db1 -= 1
+            else:
+                da1 -= 1
+
+            if s[i+n-1] == '1':
+                if not (n & 1):
+                    da = db1 + 1
+                else:
+                    db = da1 + 1
+            else:
+                if n & 1:
+                    da = db1 + 1
+                else:
+                    db = da1 + 1
+            
+            res = min(res, da, db)
+        
+        return res
+
+s = Solution()
+ans = s.minFlips("01001001101")
+print(ans)

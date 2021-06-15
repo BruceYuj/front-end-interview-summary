@@ -1,44 +1,58 @@
-class Solution:
-    def minFlips(self, s: str) -> int:
-        da = db = 0
-        a = '10'
-        b = '01'
-        n = len(s)
 
-        for i in range(n):
-            if s[i] != a[i%2]:
-                da += 1
-            
-            if s[i] != b[i%2]:
-                db += 1
+def dfs(pa, pb, le, path):
+    global ans
+    
+    if not le:
+        ans.append(path)
+        return 
+    
+    if pa == la or pb == lb: return 
+
+    for i in range(26):
+        pa1 = fa[pa][i]
+        pb1 = fb[pb][i]
         
-        res = min(da, db)
-        print(da, db)
-        s = s + s
+        if pa1 == la or pb1 == lb: continue
+        dfs(pa1+1, pb1+1, le-1, chr(i+ord('a')) + path)
+    
 
-        for i in range(1, n):
-            da1 = da 
-            db1 = db
-            if s[i-1] == '1':
-                db1 -= 1
+if __name__ == "__main__":
+    sa = input()
+    sb = input()
+    la = len(sa)
+    lb = len(sb)
+    
+    f = [[0] * (lb+1) for i in range(la+1)]
+    
+    for i in range(la-1, -1, -1):
+        for j in range(lb-1, -1, -1):
+            if sa[i] == sb[j]:
+                f[i][j] = f[i+1][j+1] + 1
             else:
-                da1 -= 1
-
-            if s[i+n-1] == '1':
-                if not (n & 1):
-                    da = db1 + 1
-                else:
-                    db = da1 + 1
+                f[i][j] = max(f[i+1][j], f[i][j+1])
+    
+    ans = []
+    
+    fa = [[la] * 26 for i in range(la+1)]
+    fb = [[lb] * 26 for i in range(lb+1)]
+    
+    for i in range(la-1, -1, -1):
+        for j in range(26):
+            if ord(sa[i]) - ord('a') == j:
+                fa[i][j] = i
             else:
-                if n & 1:
-                    da = db1 + 1
-                else:
-                    db = da1 + 1
-            
-            res = min(res, da, db)
+                fa[i][j] = fa[i+1][j]
+    
+    for i in range(lb-1, -1, -1):
+        for j in range(26):
+            if ord(sb[i]) - ord('a') == j:
+                fb[i][j] = i
+            else:
+                fb[i][j] = fb[i+1][j]
         
-        return res
+    dfs(0, 0, f[0][0], '')
 
-s = Solution()
-ans = s.minFlips("01001001101")
-print(ans)
+    for x in ans:
+        print(x)
+        
+    

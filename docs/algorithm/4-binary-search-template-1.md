@@ -39,7 +39,7 @@ autoPrev: 3-quick-sort-and-quick-select
 ### 整数二分模板
 
 ```python
-def binary_search(l , r): # 模板一：寻找右区间的左端点(上图红色部分)
+def binary_search(l , r): # 模板一：寻找右区间的左端点(上图蓝色部分)
 
     while l < r:
         mid = (l+r)//2 # 注意 l+r
@@ -49,7 +49,7 @@ def binary_search(l , r): # 模板一：寻找右区间的左端点(上图红色
 ```
 
 ```python
-def binary_search(l , r): # 模板二：寻找左区间的右端点（上图蓝色部分）
+def binary_search(l , r): # 模板二：寻找左区间的右端点（上图红色部分）
 
     while l < r:
         mid = (l+r+1)//2 # 注意 l+r+1

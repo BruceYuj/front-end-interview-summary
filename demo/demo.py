@@ -1,25 +1,30 @@
-class Solution:
-    def removeOccurrences(self, s: str, part: str) -> str:
-        n = len(s)
-        m = len(part)
-        
-        if n < m: return s
-        
-        while True:
-            i = j = 0
+from collections import defaultdict
 
-            while i < len(s) and j < m:
-                if s[i] != part[j]:
-                    j = 0
-                    i += 1
-                else:
-                    i += 1
-                    j += 1
-            print(i, j)
-            if j == m:
-                s = s[:i-m+1] + s[i+1:]
-            else:
-                return s
+class Solution:
+    def countPairs(self, arr) -> int:
+        h = [1]
+        MOD = 10 ** 9 + 7
+        ans = 0
+
+        for i in range(21):
+            h.append(h[-1]*2)
+        
+        cnt = defaultdict(int)
+
+        for t in arr:
+            cnt[t] += 1
+        
+        # print(cnt)
+        for i in range(22):
+            for x in cnt:
+                y = h[i] - x
+                if x < y:
+                    ans += cnt[x] * cnt[y]
+                elif x == y:
+                    ans += cnt[x] * (cnt[x] - 1)
+        
+        return ans % MOD
+
 
 so = Solution()
-ans = so.removeOccurrences("daabcbaabcbc", "abc")
+ans = so.countPairs([1,3,5,7,9])
